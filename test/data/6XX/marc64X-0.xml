@@ -1,0 +1,24 @@
+<record xmlns="http://www.loc.gov/MARC21/slim">
+  <leader>00856nz  a2200253n  4500</leader>
+  <controlfield tag="001">no2007128084</controlfield>
+  <datafield tag="130" ind1=" " ind2="0">
+    <subfield code="a">DK online</subfield>
+  </datafield>
+  <datafield tag="643" ind1=" " ind2=" ">
+    <subfield code="a">New York</subfield>
+    <subfield code="b">DK Pub.</subfield>
+  </datafield>
+  <datafield tag="644" ind1=" " ind2=" ">
+    <subfield code="a">f</subfield>
+    <subfield code="5">IArlh</subfield>
+  </datafield>
+  <datafield tag="645" ind1=" " ind2=" ">
+    <subfield code="a">t</subfield>
+    <subfield code="5">DPCC</subfield>
+    <subfield code="5">IArlh</subfield>
+  </datafield>
+  <datafield tag="646" ind1=" " ind2=" ">
+    <subfield code="a">s</subfield>
+    <subfield code="5">IArlh</subfield>
+  </datafield>
+</record>

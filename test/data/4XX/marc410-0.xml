@@ -1,0 +1,15 @@
+<record xmlns="http://www.loc.gov/MARC21/slim">
+  <leader>00856nz  a2200253n  4500</leader>
+  <controlfield tag="001">no2007128084</controlfield>
+  <datafield tag="130" ind1=" " ind2="0">
+    <subfield code="a">DK online</subfield>
+  </datafield>
+  <datafield tag="410" ind1="2" ind2=" ">
+    <subfield code="a">DK Publishing, Inc.</subfield>
+    <subfield code="t">DK online</subfield>
+  </datafield>
+  <datafield tag="410" ind1="2" ind2=" ">
+    <subfield code="a">Google (Firm).</subfield>
+    <subfield code="t">DK online</subfield>
+  </datafield>
+</record>

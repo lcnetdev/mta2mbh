@@ -1,0 +1,12 @@
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim">
+  <marc:leader >00563nz  a2200145n  4500</marc:leader>
+  <marc:controlfield tag="001">no2020106889</marc:controlfield>
+  <marc:controlfield tag="008" >200911nn adaabaabn          |n aaa     c</marc:controlfield>
+                           <!-- 0123456789012345678901234567890123456789 -->
+  <marc:datafield tag="100" ind1="1" ind2=" " >
+    <marc:subfield code="a">Borges, Jorge Luis,</marc:subfield>
+    <marc:subfield code="d">1899-1986.</marc:subfield>
+    <marc:subfield code="t">Short stories.</marc:subfield>
+    <marc:subfield code="k">Selections (Aleph)</marc:subfield>
+  </marc:datafield>
+</marc:record>

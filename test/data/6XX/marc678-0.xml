@@ -1,0 +1,11 @@
+<record xmlns="http://www.loc.gov/MARC21/slim">
+  <leader>01582cz  a2200217n  4500</leader>
+  <controlfield tag="001">n  80008551 </controlfield>
+  <datafield tag="110" ind1="1" ind2=" ">
+    <subfield code="a">France.</subfield>
+    <subfield code="t">Constitution (1958)</subfield>
+  </datafield>
+  <datafield tag="678" ind1=" " ind2=" ">
+    <subfield code="a">The Constitution of France was drafted by Charles de Gaulle and Michel Debré in 1958. It strengthened the power of the president, and reaffirmed the 1789 Declaration of the Rights of Man and the Citizen. It was approved by referendum and adopted on October 4, 1958.</subfield>
+  </datafield>
+</record>

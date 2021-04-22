@@ -1,0 +1,7 @@
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim">
+  <marc:leader >00563nz  a2200145n  4500</marc:leader>
+  <marc:controlfield tag="001">n12345678</marc:controlfield>
+  <marc:datafield tag="130" ind1=" " ind2="0">
+    <marc:subfield code="a">Beowulf</marc:subfield>
+  </marc:datafield>
+</marc:record>

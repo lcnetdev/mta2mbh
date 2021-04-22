@@ -1,0 +1,16 @@
+<record xmlns="http://www.loc.gov/MARC21/slim">
+  <leader>01033cz  a2200265n  4500</leader>
+  <controlfield tag="001">n  86739261 </controlfield>
+  <datafield tag="111" ind1="2" ind2=" ">
+    <subfield code="a">AIC Seminar.</subfield>
+    <subfield code="t">Proceedings</subfield>
+  </datafield>
+  <datafield tag="530" ind1=" " ind2="0">
+    <subfield code="w">a</subfield>
+    <subfield code="a">Proceedings, training project</subfield>
+  </datafield>
+  <datafield tag="530" ind1=" " ind2="0">
+    <subfield code="w">b</subfield>
+    <subfield code="a">Conference proceedings (Australian Institute of Criminology)</subfield>
+  </datafield>
+</record>

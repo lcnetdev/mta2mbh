@@ -1,0 +1,13 @@
+<record xmlns="http://www.loc.gov/MARC21/slim">
+  <leader>00394nz  a2200145n  4500</leader>
+  <controlfield tag="001">no 98099932 </controlfield>
+  <datafield tag="100" ind1="1" ind2="0">
+    <subfield code="a">Tyler, Anne.</subfield>
+    <subfield code="t">Accidental tourist.</subfield>
+    <subfield code="l">Spanish</subfield>
+  </datafield>
+  <datafield tag="400" ind1="1" ind2="0">
+    <subfield code="a">Tyler, Anne.</subfield>
+    <subfield code="t">Turista accidental</subfield>
+  </datafield>
+</record>

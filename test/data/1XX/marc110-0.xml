@@ -1,0 +1,12 @@
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim">
+  <marc:leader >00563nz  a2200145n  4500</marc:leader>
+  <marc:controlfield tag="001">n12345678</marc:controlfield>
+  <marc:datafield tag="110" ind1="2" ind2=" ">
+    <marc:subfield code="a">Library of Congress.</marc:subfield>
+    <marc:subfield code="b">Congressional Research Service.</marc:subfield>
+    <marc:subfield code="b">Senior Specialist Division.</marc:subfield>
+    <marc:subfield code="t">Soviet diplomacy and negotiating behavior.</marc:subfield>
+    <marc:subfield code="l">Japanese.</marc:subfield>
+    <marc:subfield code="k">Selections</marc:subfield>
+  </marc:datafield>
+</marc:record>

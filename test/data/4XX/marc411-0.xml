@@ -1,0 +1,18 @@
+<record xmlns="http://www.loc.gov/MARC21/slim">
+  <leader>00683cz  a2200145n  4500</leader>
+  <controlfield tag="001">n  84127557 </controlfield>
+  <datafield tag="111" ind1="2" ind2=" ">
+    <subfield code="a">Conference on the Limitation of Armament</subfield>
+    <subfield code="d">(1921-1922 :</subfield>
+    <subfield code="c">Washington, D.C.)</subfield>
+    <subfield code="t">Washinton Kaigi keika.</subfield>
+    <subfield code="n">1.</subfield>
+    <subfield code="p">Gunbi seigen ni kansuru mondai</subfield>
+  </datafield>
+  <datafield tag="411" ind1="2" ind2=" ">
+    <subfield code="a">Conference on the Limitation of Armament</subfield>
+    <subfield code="d">(1921-1922 :</subfield>
+    <subfield code="c">Washington, D.C.)</subfield>
+    <subfield code="t">Gunbi seigen ni kansuru mondai</subfield>
+  </datafield>
+</record>

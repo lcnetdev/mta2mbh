@@ -1,0 +1,63 @@
+<marc:collection xmlns:marc="http://www.loc.gov/MARC21/slim">
+  <marc:record>
+    <marc:leader >00563nz  a2200145n  4500</marc:leader>
+    <marc:controlfield tag="001">no2020106889</marc:controlfield>
+    <marc:controlfield tag="003" >DLC</marc:controlfield>
+    <marc:controlfield tag="005" >20200912070012.0</marc:controlfield>
+    <marc:controlfield tag="008" >200911n| azannaabn          |n aaa     c</marc:controlfield>
+    <marc:datafield tag="010" ind1=" " ind2=" " >
+      <marc:subfield code="a">no2020106889</marc:subfield>
+    </marc:datafield>
+    <marc:datafield tag="035" ind1=" " ind2=" " >
+      <marc:subfield code="a">(OCoLC)oca13172524</marc:subfield>
+    </marc:datafield>
+    <marc:datafield tag="040" ind1=" " ind2=" " >
+      <marc:subfield code="a">ICrlF</marc:subfield>
+      <marc:subfield code="b">eng</marc:subfield>
+      <marc:subfield code="e">rda</marc:subfield>
+      <marc:subfield code="c">ICrlF</marc:subfield>
+    </marc:datafield>
+    <marc:datafield tag="100" ind1="1" ind2=" " >
+      <marc:subfield code="a">Borges, Jorge Luis,</marc:subfield>
+      <marc:subfield code="d">1899-1986.</marc:subfield>
+      <marc:subfield code="t">Short stories.</marc:subfield>
+      <marc:subfield code="k">Selections (Aleph)</marc:subfield>
+    </marc:datafield>
+    <marc:datafield tag="373" ind1=" " ind2=" " >
+      <marc:subfield code="a">Debolsillo (Firm)</marc:subfield>
+      <marc:subfield code="2">naf</marc:subfield>
+    </marc:datafield>
+    <marc:datafield tag="670" ind1=" " ind2=" " >
+      <marc:subfield code="a">Borges, Jorge Luis. El aleph [ER], 2011 :</marc:subfield>
+      <marc:subfield code="b">table of contents frame (Lists 16 short stories including the title story El Aleph) title page frame (Jorge Luis Borges. Debolsillo)</marc:subfield>
+    </marc:datafield>
+  </marc:record>
+  <marc:record>
+    <marc:leader>00399nz  a2200145n  4500</marc:leader>
+    <marc:controlfield tag="001">n2012063190</marc:controlfield>
+    <marc:controlfield tag="003">DLC</marc:controlfield>
+    <marc:controlfield tag="005">20120926160531.0</marc:controlfield>
+    <marc:controlfield tag="008">120926n| acannaabn          |a aaa      </marc:controlfield>
+    <marc:datafield tag="010" ind1=" " ind2=" ">
+      <marc:subfield code="a">n 2012063190</marc:subfield>
+    </marc:datafield>
+    <marc:datafield tag="040" ind1=" " ind2=" ">
+      <marc:subfield code="a">DLC</marc:subfield>
+      <marc:subfield code="b">eng</marc:subfield>
+      <marc:subfield code="c">DLC</marc:subfield>
+    </marc:datafield>
+    <marc:datafield tag="100" ind1="1" ind2=" ">
+      <marc:subfield code="a">Borges, Jorge Luis,</marc:subfield>
+      <marc:subfield code="d">1899-1986.</marc:subfield>
+      <marc:subfield code="t">Short stories</marc:subfield>
+    </marc:datafield>
+    <marc:datafield tag="400" ind1="1" ind2=" ">
+      <marc:subfield code="a">Borges, Jorge Luis,</marc:subfield>
+      <marc:subfield code="d">1899-1986.</marc:subfield>
+      <marc:subfield code="t">Cuentos completos</marc:subfield>
+    </marc:datafield>
+    <marc:datafield tag="670" ind1=" " ind2=" ">
+      <marc:subfield code="a">His Cuentos completos, 2011.</marc:subfield>
+    </marc:datafield>
+  </marc:record>
+</marc:collection>

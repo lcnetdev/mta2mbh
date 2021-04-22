@@ -1,0 +1,15 @@
+<record xmlns="http://www.loc.gov/MARC21/slim">
+  <leader>00888cz  a2200241n  4500</leader>
+  <controlfield tag="001">n  86725371 </controlfield>
+  <datafield tag="100" ind1="1" ind2=" ">
+    <subfield code="a">Auden, W. H.</subfield>
+    <subfield code="q">(Wystan Hugh),</subfield>
+    <subfield code="d">1907-1973.</subfield>
+    <subfield code="t">Works.</subfield>
+    <subfield code="f">1988</subfield>
+  </datafield>
+  <datafield tag="430" ind1=" " ind2="0">
+    <subfield code="a">Complete works of W.H. Auden.</subfield>
+    <subfield code="f">1988</subfield>
+  </datafield>
+</record>

@@ -1,0 +1,11 @@
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim">
+  <marc:leader >00563nz  a2200145n  4500</marc:leader>
+  <marc:controlfield tag="001">n12345678</marc:controlfield>
+  <marc:datafield tag="111" ind1="2" ind2=" ">
+    <marc:subfield code="a">International Congress of Romance Linguistics and Philology</marc:subfield>
+    <marc:subfield code="n">(17th :$d1983 :</marc:subfield>
+    <marc:subfield code="c">Aix-en-Provence, France).</marc:subfield>
+    <marc:subfield code="t">Actes du XVIIème Congrès international de linguistique et philologie romanes</marc:subfield>
+    <marc:subfield code="d">(1983 March 2)</marc:subfield>
+  </marc:datafield>
+</marc:record>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+               xmlns:marc="http://www.loc.gov/MARC21/slim"
+               stylesheet="../mta2mbh.xsl" xslt-version="1.0">
+
+  <x:param name="pConversionDatestamp" select="'19700101'"/>
+  <x:scenario label="Regression">
+    <x:context href="data/mta.xml"/>
+    <x:expect label="should match expected">
+      <marc:record xmlns:marc="http://www.loc.gov/MARC21/slim">
+        <marc:leader>     nq  a22      u 4500</marc:leader>
+        <marc:controlfield tag="001">no2020106889</marc:controlfield>
+        <marc:controlfield tag="003">DLC</marc:controlfield>
+        <marc:controlfield tag="005">20200912070012.0</marc:controlfield>
+        <marc:controlfield tag="008">200911|        ||||||||||||||||||||    c</marc:controlfield>
+        <marc:datafield tag="010" ind1=" " ind2=" ">
+          <marc:subfield code="a">no2020106889</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="035" ind1=" " ind2=" ">
+          <marc:subfield code="a">(OCoLC)oca13172524</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="040" ind1=" " ind2=" ">
+          <marc:subfield code="a">ICrlF</marc:subfield>
+          <marc:subfield code="b">eng</marc:subfield>
+          <marc:subfield code="e">rda</marc:subfield>
+          <marc:subfield code="c">ICrlF</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="100" ind1="1" ind2=" ">
+          <marc:subfield code="a">Borges, Jorge Luis,</marc:subfield>
+          <marc:subfield code="d">1899-1986.</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="240" ind1=" " ind2="0">
+          <marc:subfield code="a">Short stories.</marc:subfield>
+          <marc:subfield code="k">Selections (Aleph)</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="587" ind1=" " ind2=" ">
+          <marc:subfield code="a">Borges, Jorge Luis. El aleph [ER], 2011 :</marc:subfield>
+          <marc:subfield code="b">table of contents frame (Lists 16 short stories including the title story El Aleph) title page frame (Jorge Luis Borges. Debolsillo)</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="884" ind1=" " ind2=" ">
+          <marc:subfield code="a">DLC mta2mbh v1.0.0-SNAPSHOT</marc:subfield>
+          <marc:subfield code="g">19700101</marc:subfield>
+          <marc:subfield code="k">no2020106889</marc:subfield>
+          <marc:subfield code="q">DLC</marc:subfield>
+          <marc:subfield code="u">https://github.com/lcnetdev/mta2mbh</marc:subfield>
+        </marc:datafield>
+      </marc:record>
+    </x:expect>
+  </x:scenario>
+
+  <x:scenario label="MARC collection">
+    <x:context href="data/mta-collection.xml"/>
+    <x:expect label="Should create a collection"
+              test="count(/marc:collection) = 1"/>
+    <x:expect label="All MTAs should create records"
+              test="count(/marc:collection/marc:record) = 2"/>
+  </x:scenario>
+
+  <x:scenario label="Leader">
+    <x:context href="data/leader/leader-0.xml"/>
+    <x:expect label="LDR/00-04 blank for MARCXML"
+              test="substring(//marc:leader,1,5) = '     '"/>
+    <x:expect label="LDR/05 convert from source LDR/05"
+              test="substring(//marc:leader,6,1) = 'n'"/>
+    <x:expect label="LDR/06 set to 'q'"
+              test="substring(//marc:leader,7,1) = 'q'"/>
+    <x:expect label="LDR/09 'a' for MARCXML"
+              test="substring(//marc:leader,10,1) = 'a'"/>
+    <x:expect label="LDR/12-16 blank for MARCXML"
+              test="substring(//marc:leader,13,5) = '     '"/>
+    <x:expect label="LDR/17 convert from source LDR/17"
+              test="substring(//marc:leader,18,1) = ' '"/>
+  </x:scenario>
+
+  <x:scenario label="Generated 008">
+    <x:context href="data/008/marc008-0.xml"/>
+    <x:expect label="008/00-05 from auth 008"
+              test="substring(//marc:controlfield[@tag='008'],1,6) = '200911'"/>
+    <x:expect label="008/06-37 default"
+              test="substring(//marc:controlfield[@tag='008'],7,32) = '|        ||||||||||||||||||||   '"/>
+    <x:expect label="008/38 from auth 008"
+              test="substring(//marc:controlfield[@tag='008'],39,1) = ' '"/>
+    <x:expect label="008/39 from auth 008"
+              test="substring(//marc:controlfield[@tag='008'],40,1) = 'c'"/>
+  </x:scenario>
+
+  <x:scenario label="008 conversion">
+    <x:context href="data/008/marc008-0.xml"/>
+    <x:expect label="008/07 can generate 884 with $a"
+              test="//marc:datafield[@tag='884'][1]/marc:subfield[@code='a'] = 'Pinyin not flipped'"/>
+    <x:expect label="008/10 can generate 040 $e"
+              test="//marc:datafield[@tag='040']/marc:subfield[@code='e'] = 'aacr'"/>
+    <x:expect label="008/12-13 can generate 467 $a/$b"
+              test="//marc:datafield[@tag='467']/marc:subfield[@code='a'] = 'a' and
+                    //marc:datafield[@tag='467']/marc:subfield[@code='b'] = 'b'"/>
+  </x:scenario>
+
+  <x:scenario label="040 conversion">
+    <x:context href="data/040/marc040-0.xml"/>
+    <x:expect label="If no $e, 008/10 can be converted as $e "
+              test="//marc:datafield[@tag='040']/marc:subfield[@code='e'] = 'pre-AACR'"/>
+  </x:scenario>
+
+  <x:scenario label="046 conversion">
+    <x:context href="data/046/marc046-0.xml"/>
+    <x:expect label="Copy specified subfields into target record"
+              test="//marc:datafield[@tag='046']/marc:subfield[@code='k'] = '1985' and
+                    //marc:datafield[@tag='046']/marc:subfield[@code='l'] = '9999' and
+                    //marc:datafield[@tag='046']/marc:subfield[@code='o'] = '1800' and
+                    //marc:datafield[@tag='046']/marc:subfield[@code='p'] = '1899'"/>
+  </x:scenario>
+
+  <x:scenario label="100 conversion">
+    <x:context href="data/1XX/marc100-0.xml"/>
+    <x:expect label="Auth 100 with $t generates MARC 100/240"
+              test="count(//marc:datafield[@tag='100']) = 1 and
+                    count(//marc:datafield[@tag='240']) = 1"/>
+    <x:expect label="Bib 100 ind1 from auth"
+              test="//marc:datafield[@tag='100']/@ind1 = '1'"/>
+    <x:expect label="Name subfields of 100 into MARC 100"
+              test="//marc:datafield[@tag='100']/marc:subfield[@code='a'] = 'Borges, Jorge Luis,' and
+                    //marc:datafield[@tag='100']/marc:subfield[@code='d'] = '1899-1986.'"/>
+    <x:expect label="$t converted to 240 $a"
+              test="//marc:datafield[@tag='240']/marc:subfield[@code='a'] = 'Short stories.'"/>
+    <x:expect label="Title subfields of 100 into 240 subfields"
+              test="//marc:datafield[@tag='240']/marc:subfield[@code='k'] = 'Selections (Aleph)'"/>
+  </x:scenario>
+
+  <x:scenario label="110 conversion">
+    <x:context href="data/1XX/marc110-0.xml"/>
+    <x:expect label="Auth 110 with $t generates MARC 110/240"
+              test="count(//marc:datafield[@tag='110']) = 1 and
+                    count(//marc:datafield[@tag='240']) = 1"/>
+    <x:expect label="Bib 110 ind1 from auth"
+              test="//marc:datafield[@tag='110']/@ind1 = '2'"/>
+    <x:expect label="Name subfields of 110 into MARC 110"
+              test="//marc:datafield[@tag='110']/marc:subfield[@code='a'] = 'Library of Congress.' and
+                    //marc:datafield[@tag='110']/marc:subfield[@code='b'][1] = 'Congressional Research Service.' and
+                    //marc:datafield[@tag='110']/marc:subfield[@code='b'][2] = 'Senior Specialist Division.'"/>
+    <x:expect label="$t converted to 240 $a"
+              test="//marc:datafield[@tag='240']/marc:subfield[@code='a'] = 'Soviet diplomacy and negotiating behavior.'"/>
+    <x:expect label="Title subfields of 110 into 240 subfield"
+              test="//marc:datafield[@tag='240']/marc:subfield[@code='l'] = 'Japanese.' and
+                    //marc:datafield[@tag='240']/marc:subfield[@code='k'] = 'Selections'"/>
+  </x:scenario>
+
+  <x:scenario label="111 conversion">
+    <x:context href="data/1XX/marc111-0.xml"/>
+    <x:expect label="Auth 111 with $t generates MARC 110/240"
+              test="count(//marc:datafield[@tag='111']) = 1 and
+                    count(//marc:datafield[@tag='240']) = 1"/>
+    <x:expect label="Bib 111 ind1 from auth"
+              test="//marc:datafield[@tag='111']/@ind1 = '2'"/>
+    <x:expect label="Name subfields of 111 into MARC 111"
+              test="//marc:datafield[@tag='111']/marc:subfield[@code='a'] = 'International Congress of Romance Linguistics and Philology' and
+                    //marc:datafield[@tag='111']/marc:subfield[@code='n'] = '(17th :$d1983 :' and
+                    //marc:datafield[@tag='111']/marc:subfield[@code='c'] = 'Aix-en-Provence, France).'"/>
+    <x:expect label="$t converted to 240 $a"
+              test="//marc:datafield[@tag='240']/marc:subfield[@code='a'] = 'Actes du XVIIème Congrès international de linguistique et philologie romanes'"/>
+    <x:expect label="Title subfields of 111 into 240 subfield"
+              test="//marc:datafield[@tag='240']/marc:subfield[@code='d'] = '(1983 March 2)'"/>
+  </x:scenario>
+
+  <x:scenario label="130 conversion">
+    <x:context href="data/1XX/marc130-0.xml"/>
+    <x:expect label="Bib ind1 from auth ind2"
+              test="//marc:datafield[@tag='130']/@ind1 = '0'"/>
+    <x:expect label="Bib subfields copied from auth"
+              test="//marc:datafield[@tag='130']/marc:subfield[@code='a'] = 'Beowulf'"/>
+  </x:scenario>
+
+  <x:scenario label="400 conversion">
+    <x:context href="data/4XX/marc400-0.xml"/>
+    <x:expect label="Auth 400 generates MARC 700"
+              test="count(//marc:datafield[@tag='700']) = 1"/>
+    <x:expect label="Bib 700 ind2=4"
+              test="//marc:datafield[@tag='700']/@ind2 = '4'"/>
+    <x:expect label="Copy other fields"
+              test="//marc:datafield[@tag='700']/marc:subfield[@code='a'] = 'Tyler, Anne.'"/>
+  </x:scenario>
+
+  <x:scenario label="410 conversion">
+    <x:context href="data/4XX/marc410-0.xml"/>
+    <x:expect label="Auth 410 generates MARC 710"
+              test="count(//marc:datafield[@tag='710']) = 2"/>
+    <x:expect label="Bib 710 ind2=4"
+              test="//marc:datafield[@tag='710'][1]/@ind2 = '4'"/>
+    <x:expect label="Copy other fields"
+              test="//marc:datafield[@tag='710'][2]/marc:subfield[@code='a'] = 'Google (Firm).'"/>
+  </x:scenario>
+
+  <x:scenario label="411 conversion">
+    <x:context href="data/4XX/marc411-0.xml"/>
+    <x:expect label="Auth 411 generates MARC 711"
+              test="count(//marc:datafield[@tag='711']) = 1"/>
+    <x:expect label="Bib 711 ind2=4"
+              test="//marc:datafield[@tag='711']/@ind2 = '4'"/>
+    <x:expect label="Copy other fields"
+              test="//marc:datafield[@tag='711']/marc:subfield[@code='a'] = 'Conference on the Limitation of Armament'"/>
+  </x:scenario>
+
+  <x:scenario label="430 conversion">
+    <x:context href="data/4XX/marc430-0.xml"/>
+    <x:expect label="Auth 430 generates MARC 730"
+              test="count(//marc:datafield[@tag='730']) = 1"/>
+    <x:expect label="Auth ind2 value in bib ind1"
+              test="//marc:datafield[@tag='730']/@ind1 = '0'"/>
+    <x:expect label="Bib 730 ind2=4"
+              test="//marc:datafield[@tag='730']/@ind2 = '4'"/>
+    <x:expect label="Copy other fields"
+              test="//marc:datafield[@tag='730']/marc:subfield[@code='a'] = 'Complete works of W.H. Auden.'"/>
+  </x:scenario>
+
+  <!-- Missing test data -->
+  <!-- <x:scenario label="500, 511 conversion"/> -->
+
+  <x:scenario label="510 conversion">
+    <x:context href="data/5XX/marc510-0.xml"/>
+    <x:expect label="Auth 510 generates MARC 710"
+              test="count(//marc:datafield[@tag='710']) = 1"/>
+    <x:expect label="Bib 710 ind2=#"
+              test="//marc:datafield[@tag='710']/@ind2 = ' '"/>
+    <x:expect label="Copy other fields"
+              test="//marc:datafield[@tag='710']/marc:subfield[@code='a'] = 'France.'"/>
+  </x:scenario>
+  
+  <x:scenario label="530 conversion">
+    <x:context href="data/5XX/marc530-0.xml"/>
+    <x:expect label="Auth 530 generates MARC 730"
+              test="count(//marc:datafield[@tag='730']) = 2"/>
+    <x:expect label="Auth ind2 value in bib ind1"
+              test="//marc:datafield[@tag='730'][1]/@ind1 = '0'"/>
+    <x:expect label="Bib 730 ind2=#"
+              test="//marc:datafield[@tag='730'][2]/@ind2 = ' '"/>
+    <x:expect label="Copy other fields"
+              test="//marc:datafield[@tag='730'][1]/marc:subfield[@code='a'] = 'Proceedings, training project'"/>
+    <x:expect label="Generate $i from $w/0"
+              test="//marc:datafield[@tag='730'][1]/marc:subfield[@code='i'] = 'related work'"/>
+  </x:scenario>
+  
+  <x:scenario label="640-646 conversion">
+    <x:context href="data/6XX/marc64X-0.xml"/>
+    <x:expect label="Auth 64X generates bib 46X"
+              test="count(//marc:datafield[starts-with(@tag,'46')]) = 4"/>
+  </x:scenario>
+
+  <x:scenario label="667 conversion">
+    <x:context href="data/6XX/marc667-0.xml"/>
+    <x:expect label="Auth 667 generates bib 588"
+              test="count(//marc:datafield[@tag='588']) = 1"/>
+  </x:scenario>
+  
+  <x:scenario label="670, 675 conversion">
+    <x:context href="data/6XX/marc67X-0.xml"/>
+    <x:expect label="Auth 670 and 675 generate bib 587"
+              test="count(//marc:datafield[@tag='587']) = 2"/>
+    <x:expect label="Bib 587 from auth 670 has ind1=#"
+              test="//marc:datafield[@tag='587'][1]/@ind1 = ' '"/>
+    <x:expect label="Bib 587 from auth 675 has ind1=0"
+              test="//marc:datafield[@tag='587'][2]/@ind1 = '0'"/>
+  </x:scenario>
+    
+  <x:scenario label="678 conversion">
+    <x:context href="data/6XX/marc678-0.xml"/>
+    <x:expect label="Auth 678 generates bib 545"
+              test="count(//marc:datafield[@tag='545']) = 1"/>
+  </x:scenario>
+  
+  <!-- missing test data -->
+  <!-- <x:scenario label="700, 710, 711, 730 conversion"/> -->
+
+</x:description>

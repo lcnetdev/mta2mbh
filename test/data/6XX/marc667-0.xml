@@ -1,0 +1,10 @@
+<record xmlns="http://www.loc.gov/MARC21/slim">
+  <leader>00879cz  a2200277n  4500</leader>
+  <controlfield tag="001">n  86706550 </controlfield>
+  <datafield tag="130" ind1=" " ind2="0">
+    <subfield code="a">Circular (Library of Congress. Copyright Office)</subfield>
+  </datafield>
+  <datafield tag="667" ind1=" " ind2=" ">
+    <subfield code="a">Document.</subfield>
+  </datafield>
+</record>
