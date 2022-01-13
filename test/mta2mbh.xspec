@@ -9,7 +9,7 @@
     <x:context href="data/mta.xml"/>
     <x:expect label="should match expected">
       <marc:record xmlns:marc="http://www.loc.gov/MARC21/slim">
-        <marc:leader>     nq  a22      u 4500</marc:leader>
+        <marc:leader>     nqu a22      u 4500</marc:leader>
         <marc:controlfield tag="001">no2020106889</marc:controlfield>
         <marc:controlfield tag="003">DLC</marc:controlfield>
         <marc:controlfield tag="005">20200912070012.0</marc:controlfield>
@@ -65,6 +65,8 @@
               test="substring(//marc:leader,6,1) = 'n'"/>
     <x:expect label="LDR/06 set to 'q'"
               test="substring(//marc:leader,7,1) = 'q'"/>
+    <x:expect label="LDR/07 set to 'u'"
+              test="substring(//marc:leader,8,1) = 'u'"/>
     <x:expect label="LDR/09 'a' for MARCXML"
               test="substring(//marc:leader,10,1) = 'a'"/>
     <x:expect label="LDR/12-16 blank for MARCXML"
@@ -91,9 +93,10 @@
               test="//marc:datafield[@tag='884'][1]/marc:subfield[@code='a'] = 'Pinyin not flipped'"/>
     <x:expect label="008/10 can generate 040 $e"
               test="//marc:datafield[@tag='040']/marc:subfield[@code='e'] = 'aacr'"/>
-    <x:expect label="008/12-13 can generate 467 $a/$b"
-              test="//marc:datafield[@tag='467']/marc:subfield[@code='a'] = 'a' and
-                    //marc:datafield[@tag='467']/marc:subfield[@code='b'] = 'b'"/>
+    <x:expect label="008/12 can generate 460 $b"
+              test="//marc:datafield[@tag='460']/marc:subfield[@code='b'] = 'a'"/>
+    <x:expect label="008/13 can generate 461 $b"
+              test="//marc:datafield[@tag='461']/marc:subfield[@code='b'] = 'b'"/>
   </x:scenario>
 
   <x:scenario label="040 conversion">
@@ -241,8 +244,20 @@
   
   <x:scenario label="640-646 conversion">
     <x:context href="data/6XX/marc64X-0.xml"/>
-    <x:expect label="Auth 64X generates bib 46X"
-              test="count(//marc:datafield[starts-with(@tag,'46')]) = 4"/>
+    <x:expect label="Auth 640 generates bib 462"
+              test="count(//marc:datafield[@tag='462']) = 1"/>
+    <x:expect label="Auth 641 generates bib 463"
+              test="count(//marc:datafield[@tag='463']) = 1"/>
+    <x:expect label="Auth 642 generates bib 464"
+              test="count(//marc:datafield[@tag='464']) = 1"/>
+    <x:expect label="Auth 643 generates bib 465"
+              test="count(//marc:datafield[@tag='465']) = 1"/>
+    <x:expect label="Auth 644 generates bib 466"
+              test="count(//marc:datafield[@tag='466']) = 1"/>
+    <x:expect label="Auth 645 generates bib 467"
+              test="count(//marc:datafield[@tag='467']) = 1"/>
+    <x:expect label="Auth 646 generates bib 468"
+              test="count(//marc:datafield[@tag='468']) = 1"/>
   </x:scenario>
 
   <x:scenario label="667 conversion">

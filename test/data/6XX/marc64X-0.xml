@@ -4,6 +4,16 @@
   <datafield tag="130" ind1=" " ind2="0">
     <subfield code="a">DK online</subfield>
   </datafield>
+  <datafield tag="640" ind1="1" ind2=" ">
+    <subfield code="a">Complete in 15 v.</subfield>
+  </datafield>
+  <datafield tag="641" ind1=" " ind2=" ">
+    <subfield code="a">Each issue covers: Apr. 1-Mar. 31</subfield>
+  </datafield>
+  <datafield tag="642" ind1=" " ind2=" ">
+    <subfield code="a">79/2</subfield>
+    <subfield code="5">DLC</subfield>
+  </datafield>
   <datafield tag="643" ind1=" " ind2=" ">
     <subfield code="a">New York</subfield>
     <subfield code="b">DK Pub.</subfield>

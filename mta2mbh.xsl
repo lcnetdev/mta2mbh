@@ -112,7 +112,7 @@
                 <xsl:otherwise>7</xsl:otherwise>
               </xsl:choose>
             </xsl:variable>
-            <marc:leader><xsl:value-of select="concat('     ',$vLdr5,'q  a',substring(.,11,2),'     ',$vLdr17,'u 4500')"/></marc:leader>
+            <marc:leader><xsl:value-of select="concat('     ',$vLdr5,'qu a',substring(.,11,2),'     ',$vLdr17,'u 4500')"/></marc:leader>
           </xsl:for-each>
           <xsl:choose>
             <xsl:when test="function-available('exsl:node-set')">
@@ -168,24 +168,26 @@
         </marc:subfield>
       </marc:datafield>
     </xsl:if>
-    <xsl:if test="contains('abc',substring(.,13,1)) or
-                  contains('abc',substring(.,14,1))">
+    <xsl:if test="contains('abc',substring(.,13,1))">
       <marc:datafield>
-        <xsl:attribute name="tag">467</xsl:attribute>
+        <xsl:attribute name="tag">460</xsl:attribute>
         <xsl:attribute name="ind1"><xsl:text> </xsl:text></xsl:attribute>
         <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
-        <xsl:if test="contains('abc',substring(.,13,1))">
-          <marc:subfield>
-            <xsl:attribute name="code">a</xsl:attribute>
-            <xsl:value-of select="substring(.,13,1)"/>
-          </marc:subfield>
-        </xsl:if>
-        <xsl:if test="contains('abc',substring(.,14,1))">
-          <marc:subfield>
-            <xsl:attribute name="code">b</xsl:attribute>
-            <xsl:value-of select="substring(.,14,1)"/>
-          </marc:subfield>
-        </xsl:if>
+        <marc:subfield>
+          <xsl:attribute name="code">b</xsl:attribute>
+          <xsl:value-of select="substring(.,13,1)"/>
+        </marc:subfield>
+      </marc:datafield>
+    </xsl:if>
+    <xsl:if test="contains('abc',substring(.,14,1))">
+      <marc:datafield>
+        <xsl:attribute name="tag">461</xsl:attribute>
+        <xsl:attribute name="ind1"><xsl:text> </xsl:text></xsl:attribute>
+        <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+        <marc:subfield>
+          <xsl:attribute name="code">b</xsl:attribute>
+          <xsl:value-of select="substring(.,14,1)"/>
+        </marc:subfield>
       </marc:datafield>
     </xsl:if>
   </xsl:template>
@@ -357,8 +359,19 @@
                        marc:datafield[@tag='644'] |
                        marc:datafield[@tag='645'] |
                        marc:datafield[@tag='646']">
+    <xsl:variable name="vTargetTag">
+      <xsl:choose>
+        <xsl:when test="@tag='640'">462</xsl:when>
+        <xsl:when test="@tag='641'">463</xsl:when>
+        <xsl:when test="@tag='642'">464</xsl:when>
+        <xsl:when test="@tag='643'">465</xsl:when>
+        <xsl:when test="@tag='644'">466</xsl:when>
+        <xsl:when test="@tag='645'">467</xsl:when>
+        <xsl:when test="@tag='646'">468</xsl:when>
+      </xsl:choose>
+    </xsl:variable>
     <marc:datafield>
-      <xsl:attribute name="tag"><xsl:value-of select="concat('46',substring(@tag,3,1))"/></xsl:attribute>
+      <xsl:attribute name="tag"><xsl:value-of select="$vTargetTag"/></xsl:attribute>
       <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
       <xsl:attribute name="ind2"><xsl:value-of select="@ind2"/></xsl:attribute>
       <xsl:apply-templates mode="copy" select="marc:subfield[@code != '6']"/>
