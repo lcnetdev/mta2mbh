@@ -2,10 +2,9 @@
                  xmlns:marc="http://www.loc.gov/MARC21/slim"
                  xmlns:exsl="http://exslt.org/common"
                  xmlns:date="http://exslt.org/dates-and-times"
-                 xmlns:fn="http://www.w3.org/2005/xpath-functions"
                  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                  extension-element-prefixes="exsl date"
-                 exclude-result-prefixes="fn">
+                 exclude-result-prefixes="xsl">
 
   <xsl:output encoding="UTF-8" method="xml" indent="yes"/>
   <xsl:strip-space elements="*"/>
@@ -42,8 +41,8 @@
             <xsl:when test="function-available('date:date-time')">
               <xsl:value-of select="concat(translate(substring(date:date-time(),1,19),'-:T',''),'.0')"/>
             </xsl:when>
-            <xsl:when test="function-available('fn:current-dateTime')">
-              <xsl:value-of select="concat(translate(substring(fn:current-dateTime(),1,19),'-:T',''),'.0')"/>
+            <xsl:when test="function-available('current-dateTime')">
+              <xsl:value-of select="concat(translate(substring(current-dateTime(),1,19),'-:T',''),'.0')"/>
             </xsl:when>
           </xsl:choose>
         </xsl:variable>
