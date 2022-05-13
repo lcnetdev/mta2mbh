@@ -296,12 +296,95 @@
   <xsl:template match="marc:datafield[@tag='400'] |
                        marc:datafield[@tag='410'] |
                        marc:datafield[@tag='411']">
-    <marc:datafield>
+    <!--
+        It is not a copy we want here.  We want to extract any titles that are different
+        from the one in the 1XX and add them as 246s.  And we want to extract any names that 
+        are different than that found in the 1XX and add them as related *name* access points.
+      -->
+    <!--
+      <marc:datafield>
       <xsl:attribute name="tag"><xsl:value-of select="concat('7',substring(@tag,2,2))"/></xsl:attribute>
       <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
       <xsl:attribute name="ind2">4</xsl:attribute>
       <xsl:apply-templates mode="copy" select="marc:subfield[not(contains('w6',@code))]"/>
     </marc:datafield>
+    -->
+    <!-- 
+      We want to determine if the name in the 1XX matches the name in the 4XX *per record*.
+      It is likely, for this comparison check, comparing a, b, c, e, j, and q, which are 
+      mostly common across the 1XX fields and do *not* also pertain to the title, is 
+      sufficient to determine equality.
+    -->
+    
+    <xsl:variable name="df1XXname">
+      <xsl:for-each select="../marc:datafield[@tag='100' or @tag='110' or @tag='111'][1]/marc:subfield[contains('abcejq',@code)]">
+        <xsl:if test="position() > 1">
+          <xsl:text> </xsl:text>
+        </xsl:if>
+        <xsl:value-of select="."/>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:variable name="df4XXname">
+      <xsl:for-each select="marc:subfield[contains('abcejq',@code)]">
+        <xsl:if test="position() > 1">
+          <xsl:text> </xsl:text>
+        </xsl:if>
+        <xsl:value-of select="."/>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:if test="$df1XXname != $df4XXname">
+      <marc:datafield>
+        <xsl:attribute name="tag"><xsl:value-of select="concat('7',substring(@tag,2,2))"/></xsl:attribute>
+        <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
+        <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+        <!-- No d, g, or n subfields after 't' -->
+        <xsl:for-each select="marc:subfield[contains('abcejqdgn',@code)]">
+          <xsl:if test="position()=1 or preceding-sibling::node()[not(contains('t',@code))]" >
+            <xsl:apply-templates mode="copy" select="."/>
+          </xsl:if> 
+        </xsl:for-each>
+      </marc:datafield>
+    </xsl:if>
+    
+    <xsl:variable name="df1XXtitle">
+      <xsl:for-each select="../marc:datafield[@tag='100' or @tag='110' or @tag='111'][1]/marc:subfield[contains('tfhklmoprs',@code)]">
+        <xsl:if test="position() > 1">
+          <xsl:text> </xsl:text>
+        </xsl:if>
+        <xsl:value-of select="."/>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:variable name="df4XXtitle">
+      <xsl:for-each select="marc:subfield[contains('tfhklmoprs',@code)]">
+        <xsl:if test="position() > 1">
+          <xsl:text> </xsl:text>
+        </xsl:if>
+        <xsl:value-of select="."/>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:if test="$df1XXtitle != $df4XXtitle">
+      <marc:datafield>
+        <xsl:attribute name="tag">246</xsl:attribute>
+        <xsl:attribute name="ind1">3</xsl:attribute> <!-- no note, added entry -->
+        <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute> <!-- no type specified yes? -->
+        <!-- d, g, or n subfields after 't' -->
+        <xsl:variable name="df246title">
+          <xsl:for-each select="marc:subfield[contains('tfhklmoprsdgn',@code)]">
+            <xsl:if test="string(@code) = 't' or preceding-sibling::node()[contains('t',@code)]" >
+              <xsl:if test="position() > 1">
+                <xsl:text> </xsl:text>
+              </xsl:if>
+              <xsl:value-of select="."/>
+            </xsl:if>
+          </xsl:for-each>
+        </xsl:variable>
+        <marc:subfield>
+          <xsl:attribute name="code">a</xsl:attribute>
+          <xsl:value-of select="normalize-space($df246title)"/>
+        </marc:subfield>
+      </marc:datafield>
+    </xsl:if>
+
   </xsl:template>
   
   <xsl:template match="marc:datafield[@tag='430']">
