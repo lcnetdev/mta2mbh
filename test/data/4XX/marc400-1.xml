@@ -1,0 +1,20 @@
+<record xmlns="http://www.loc.gov/MARC21/slim">
+    <leader>00394nz  a2200145n  4500</leader>
+    <controlfield tag="001">n98084161</controlfield>
+    <datafield tag="100" ind1="0" ind2=" ">
+        <subfield code="a">Christo,</subfield>
+        <subfield code="d">1935-2020.</subfield>
+        <subfield code="t">Gates</subfield>
+    </datafield>
+    <datafield tag="400" ind1="0" ind2=" ">
+        <subfield code="a">Jeanne-Claude,</subfield>
+        <subfield code="d">1935-2009.</subfield>
+        <subfield code="t">Gates</subfield>
+    </datafield>
+</record>
+
+
+
+
+
+

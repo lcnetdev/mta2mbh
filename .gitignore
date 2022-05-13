@@ -1,1 +1,6 @@
-xspec
+# Output test paths
+test/xspec
+test/*.html
+
+# Oxygen project files
+*.xpr

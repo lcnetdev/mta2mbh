@@ -173,34 +173,58 @@
               test="//marc:datafield[@tag='130']/marc:subfield[@code='a'] = 'Beowulf'"/>
   </x:scenario>
 
-  <x:scenario label="400 conversion">
+  <x:scenario label="400 conversion - Test 0">
     <x:context href="data/4XX/marc400-0.xml"/>
+    <x:expect label="Auth 400 does *not* generate MARC 700"
+              test="count(//marc:datafield[@tag='700']) = 0"/>
+    <x:expect label="Auth 400 generates MARC 246"
+              test="count(//marc:datafield[@tag='246']) = 1"/>
+    <x:expect label="Bib 246 ind1=3"
+              test="//marc:datafield[@tag='246'][1]/@ind1 = '3'"/>
+  </x:scenario>
+
+  <x:scenario label="400 conversion - Test 1">
+    <x:context href="data/4XX/marc400-1.xml"/>
     <x:expect label="Auth 400 generates MARC 700"
-              test="count(//marc:datafield[@tag='700']) = 1"/>
-    <x:expect label="Bib 700 ind2=4"
-              test="//marc:datafield[@tag='700']/@ind2 = '4'"/>
+      test="count(//marc:datafield[@tag='700']) = 1"/>
+    <x:expect label="Bib 700 ind2=' '"
+      test="//marc:datafield[@tag='700'][1]/@ind2 = ' '"/>
     <x:expect label="Copy other fields"
-              test="//marc:datafield[@tag='700']/marc:subfield[@code='a'] = 'Tyler, Anne.'"/>
+      test="//marc:datafield[@tag='700'][1]/marc:subfield[@code='a'] = 'Jeanne-Claude,'"/>
+  </x:scenario>
+
+  <x:scenario label="400 conversion - Test 2">
+    <x:context href="data/4XX/marc400-2.xml"/>
+    <x:expect label="Auth 400 does *not* generate MARC 700"
+      test="count(//marc:datafield[@tag='700']) = 0"/>
+    <x:expect label="Auth 400 generates two MARC 246s"
+      test="count(//marc:datafield[@tag='246']) = 2"/>
+    <x:expect label="Bib 246 ind1=3"
+      test="//marc:datafield[@tag='246'][1]/@ind1 = '3'"/>
+    <x:expect label="Bib 246 value of second 246"
+      test="//marc:datafield[@tag='246'][2]//marc:subfield[@code='a'] = 'Who will but let himself be guided'"/>
   </x:scenario>
 
   <x:scenario label="410 conversion">
     <x:context href="data/4XX/marc410-0.xml"/>
     <x:expect label="Auth 410 generates MARC 710"
               test="count(//marc:datafield[@tag='710']) = 2"/>
-    <x:expect label="Bib 710 ind2=4"
-              test="//marc:datafield[@tag='710'][1]/@ind2 = '4'"/>
+    <x:expect label="Bib 710 ind2=' '"
+              test="//marc:datafield[@tag='710'][1]/@ind2 = ' '"/>
     <x:expect label="Copy other fields"
               test="//marc:datafield[@tag='710'][2]/marc:subfield[@code='a'] = 'Google (Firm).'"/>
   </x:scenario>
 
   <x:scenario label="411 conversion">
     <x:context href="data/4XX/marc411-0.xml"/>
-    <x:expect label="Auth 411 generates MARC 711"
-              test="count(//marc:datafield[@tag='711']) = 1"/>
-    <x:expect label="Bib 711 ind2=4"
-              test="//marc:datafield[@tag='711']/@ind2 = '4'"/>
+    <x:expect label="Auth 411 does *not* generate MARC 711"
+              test="count(//marc:datafield[@tag='711']) = 0"/>
+    <x:expect label="Auth 400 generates a MARC 246"
+              test="count(//marc:datafield[@tag='246']) = 1"/>
+    <x:expect label="Bib 246 ind1=3"
+              test="//marc:datafield[@tag='246'][1]/@ind1 = '3'"/>
     <x:expect label="Copy other fields"
-              test="//marc:datafield[@tag='711']/marc:subfield[@code='a'] = 'Conference on the Limitation of Armament'"/>
+              test="//marc:datafield[@tag='246']/marc:subfield[@code='a'] = 'Gunbi seigen ni kansuru mondai'"/>
   </x:scenario>
 
   <x:scenario label="430 conversion">
