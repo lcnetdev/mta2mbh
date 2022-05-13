@@ -12,4 +12,7 @@
     <subfield code="a">Google (Firm).</subfield>
     <subfield code="t">DK online</subfield>
   </datafield>
+  <datafield tag="430" ind1=" " ind2="0">
+    <subfield code="a">Web-linked DK online</subfield>
+  </datafield>
 </record>

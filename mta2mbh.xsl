@@ -347,12 +347,12 @@
     </xsl:if>
     
     <xsl:variable name="df1XXtitle">
-      <xsl:for-each select="../marc:datafield[@tag='100' or @tag='110' or @tag='111'][1]/marc:subfield[contains('tfhklmoprs',@code)]">
-        <xsl:if test="position() > 1">
-          <xsl:text> </xsl:text>
-        </xsl:if>
-        <xsl:value-of select="."/>
-      </xsl:for-each>
+      <xsl:apply-templates mode="df1XXtitle" select="../marc:datafield[
+                                                        @tag='130' or 
+                                                        @tag='100' or 
+                                                        @tag='110' or 
+                                                        @tag='111']"
+      />
     </xsl:variable>
     <xsl:variable name="df4XXtitle">
       <xsl:for-each select="marc:subfield[contains('tfhklmoprs',@code)]">
@@ -388,12 +388,50 @@
   </xsl:template>
   
   <xsl:template match="marc:datafield[@tag='430']">
+    <!--
     <marc:datafield>
       <xsl:attribute name="tag">730</xsl:attribute>
       <xsl:attribute name="ind1"><xsl:value-of select="@ind2"/></xsl:attribute>
       <xsl:attribute name="ind2">4</xsl:attribute>
       <xsl:apply-templates mode="copy" select="marc:subfield[not(contains('w6',@code))]"/>
     </marc:datafield>
+    -->
+    <xsl:variable name="df1XXtitle">
+      <xsl:apply-templates mode="df1XXtitle" select="../marc:datafield[
+        @tag='130' or 
+        @tag='100' or 
+        @tag='110' or 
+        @tag='111']"
+      />
+    </xsl:variable>
+    <xsl:variable name="df4XXtitle">
+      <xsl:for-each select="marc:subfield[contains('adfghklmnoprst',@code)]">
+        <xsl:if test="position() > 1">
+          <xsl:text> </xsl:text>
+        </xsl:if>
+        <xsl:value-of select="."/>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:if test="$df1XXtitle != $df4XXtitle">
+      <marc:datafield>
+        <xsl:attribute name="tag">246</xsl:attribute>
+        <xsl:attribute name="ind1">3</xsl:attribute> <!-- no note, added entry -->
+        <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute> <!-- no type specified yes? -->
+        <!-- d, g, or n subfields after 't' -->
+        <xsl:variable name="df246title">
+          <xsl:for-each select="marc:subfield[contains('adfghklmnoprst',@code)]">
+            <xsl:if test="position() > 1">
+              <xsl:text> </xsl:text>
+            </xsl:if>
+            <xsl:value-of select="."/>
+          </xsl:for-each>
+        </xsl:variable>
+        <marc:subfield>
+          <xsl:attribute name="code">a</xsl:attribute>
+          <xsl:value-of select="normalize-space($df246title)"/>
+        </marc:subfield>
+      </marc:datafield>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="marc:datafield[@tag='500'] |
@@ -625,6 +663,27 @@
     
   <xsl:template match="@*|text()|comment()" mode="copy">
     <xsl:copy/>
+  </xsl:template>
+  
+  <xsl:template match="marc:datafield" mode="df1XXtitle">
+    <xsl:choose>
+      <xsl:when test="@tag = '130'">
+        <xsl:for-each select="marc:subfield[contains('adfghklmnoprst',@code)]">
+          <xsl:if test="position() > 1">
+            <xsl:text> </xsl:text>
+          </xsl:if>
+          <xsl:value-of select="."/>
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:for-each select="marc:subfield[contains('tfhklmoprs',@code)]">
+          <xsl:if test="position() > 1">
+            <xsl:text> </xsl:text>
+          </xsl:if>
+          <xsl:value-of select="."/>
+        </xsl:for-each>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   
 </xsl:stylesheet>

@@ -229,14 +229,22 @@
 
   <x:scenario label="430 conversion">
     <x:context href="data/4XX/marc430-0.xml"/>
-    <x:expect label="Auth 430 generates MARC 730"
-              test="count(//marc:datafield[@tag='730']) = 1"/>
-    <x:expect label="Auth ind2 value in bib ind1"
-              test="//marc:datafield[@tag='730']/@ind1 = '0'"/>
-    <x:expect label="Bib 730 ind2=4"
-              test="//marc:datafield[@tag='730']/@ind2 = '4'"/>
+    <x:expect label="Auth 430 generates MARC 246"
+              test="count(//marc:datafield[@tag='246']) = 1"/>
+    <x:expect label="Bib 246 ind1=3"
+              test="//marc:datafield[@tag='246'][1]/@ind1 = '3'"/>
     <x:expect label="Copy other fields"
-              test="//marc:datafield[@tag='730']/marc:subfield[@code='a'] = 'Complete works of W.H. Auden.'"/>
+              test="//marc:datafield[@tag='246']/marc:subfield[@code='a'] = 'Complete works of W.H. Auden. 1988'"/>
+  </x:scenario>
+
+  <x:scenario label="430 conversion - Extra">
+    <x:context href="data/4XX/marc410-0.xml"/>
+    <x:expect label="Auth 430 generates MARC 246"
+      test="count(//marc:datafield[@tag='246']) = 1"/>
+    <x:expect label="Bib 246 ind1=3"
+      test="//marc:datafield[@tag='246'][1]/@ind1 = '3'"/>
+    <x:expect label="Copy other fields"
+      test="//marc:datafield[@tag='246']/marc:subfield[@code='a'] = 'Web-linked DK online'"/>
   </x:scenario>
 
   <!-- Missing test data -->
