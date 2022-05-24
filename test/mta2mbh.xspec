@@ -114,7 +114,7 @@
                     //marc:datafield[@tag='046']/marc:subfield[@code='p'] = '1899'"/>
   </x:scenario>
 
-  <x:scenario label="100 conversion">
+  <x:scenario label="100 conversion - Set 1">
     <x:context href="data/1XX/marc100-0.xml"/>
     <x:expect label="Auth 100 with $t generates MARC 100/240"
               test="count(//marc:datafield[@tag='100']) = 1 and
@@ -130,7 +130,20 @@
               test="//marc:datafield[@tag='240']/marc:subfield[@code='k'] = 'Selections (Aleph)'"/>
   </x:scenario>
 
-  <x:scenario label="110 conversion">
+  <x:scenario label="100 conversion - Set 2">
+    <x:context href="data/1XX/marc100-1.xml"/>
+    <x:expect label="Auth 100 with $t generates MARC 100/240"
+      test="count(//marc:datafield[@tag='100']) = 1 and
+      count(//marc:datafield[@tag='240']) = 1"/>
+    <x:expect label="$l present in 240"
+      test="count(//marc:datafield[@tag='240']/marc:subfield[@code='l']) = 1"/>
+    <x:expect label="Auth 700 exists"
+      test="count(//marc:datafield[@tag='700']) = 2"/>
+    <x:expect label="$l NOT present in 700"
+      test="count(//marc:datafield[@tag='700'][1]/marc:subfield[@code='l']) = 0"/>
+  </x:scenario>
+
+  <x:scenario label="110 conversion - Set 1">
     <x:context href="data/1XX/marc110-0.xml"/>
     <x:expect label="Auth 110 with $t generates MARC 110/240"
               test="count(//marc:datafield[@tag='110']) = 1 and
@@ -147,10 +160,23 @@
               test="//marc:datafield[@tag='240']/marc:subfield[@code='l'] = 'Japanese.' and
                     //marc:datafield[@tag='240']/marc:subfield[@code='k'] = 'Selections'"/>
   </x:scenario>
+  
+  <x:scenario label="110 conversion - Set 2">
+    <x:context href="data/1XX/marc110-1.xml"/>
+    <x:expect label="Auth 110 with $t generates MARC 110/240"
+      test="count(//marc:datafield[@tag='110']) = 1 and
+      count(//marc:datafield[@tag='240']) = 1"/>
+    <x:expect label="$l present in 240"
+      test="count(//marc:datafield[@tag='240']/marc:subfield[@code='l']) = 1"/>
+    <x:expect label="Auth 710 exists"
+      test="count(//marc:datafield[@tag='710']) = 1"/>
+    <x:expect label="$l NOT present in 710"
+      test="count(//marc:datafield[@tag='710']/marc:subfield[@code='l']) = 0"/>
+  </x:scenario>
 
-  <x:scenario label="111 conversion">
+  <x:scenario label="111 conversion - Set 1">
     <x:context href="data/1XX/marc111-0.xml"/>
-    <x:expect label="Auth 111 with $t generates MARC 110/240"
+    <x:expect label="Auth 111 with $t generates MARC 111/240"
               test="count(//marc:datafield[@tag='111']) = 1 and
                     count(//marc:datafield[@tag='240']) = 1"/>
     <x:expect label="Bib 111 ind1 from auth"
@@ -164,19 +190,44 @@
     <x:expect label="Title subfields of 111 into 240 subfield"
               test="//marc:datafield[@tag='240']/marc:subfield[@code='d'] = '(1983 March 2)'"/>
   </x:scenario>
+  
+  <x:scenario label="111 conversion - Set 2">
+    <x:context href="data/1XX/marc111-1.xml"/>
+    <x:expect label="Auth 111 with $t generates MARC 111/240"
+      test="count(//marc:datafield[@tag='111']) = 1 and
+      count(//marc:datafield[@tag='240']) = 1"/>
+    <x:expect label="$l present in 240"
+      test="count(//marc:datafield[@tag='240']/marc:subfield[@code='l']) = 1"/>
+    <x:expect label="Auth 711 exists"
+      test="count(//marc:datafield[@tag='711']) = 1"/>
+    <x:expect label="$l NOT present in 711"
+      test="count(//marc:datafield[@tag='711']/marc:subfield[@code='l']) = 0"/>
+  </x:scenario>
 
-  <x:scenario label="130 conversion">
+  <x:scenario label="130 conversion - Set 1">
     <x:context href="data/1XX/marc130-0.xml"/>
     <x:expect label="Bib ind1 from auth ind2"
               test="//marc:datafield[@tag='130']/@ind1 = '0'"/>
     <x:expect label="Bib subfields copied from auth"
               test="//marc:datafield[@tag='130']/marc:subfield[@code='a'] = 'Beowulf'"/>
   </x:scenario>
+  
+  <x:scenario label="130 conversion - Set 2">
+    <x:context href="data/1XX/marc130-1.xml"/>
+    <x:expect label="Auth 130 with $t generates MARC 130"
+      test="count(//marc:datafield[@tag='130']) = 1"/>
+    <x:expect label="$l present in 130"
+      test="count(//marc:datafield[@tag='130']/marc:subfield[@code='l']) = 1"/>
+    <x:expect label="Auth 711 exists"
+      test="count(//marc:datafield[@tag='730']) = 1"/>
+    <x:expect label="$l NOT present in 730"
+      test="count(//marc:datafield[@tag='730']/marc:subfield[@code='l']) = 0"/>
+  </x:scenario>
 
   <x:scenario label="400 conversion - Test 0">
     <x:context href="data/4XX/marc400-0.xml"/>
-    <x:expect label="Auth 400 does *not* generate MARC 700"
-              test="count(//marc:datafield[@tag='700']) = 0"/>
+    <x:expect label="Auth 400 generates only 1 MARC 700 (for the translation)"
+              test="count(//marc:datafield[@tag='700']) = 1"/>
     <x:expect label="Auth 400 generates MARC 246"
               test="count(//marc:datafield[@tag='246']) = 1"/>
     <x:expect label="Bib 246 ind1=3"
