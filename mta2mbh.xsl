@@ -254,6 +254,21 @@
                                                  ]"/>
       </marc:datafield>
     </xsl:if>
+    <xsl:if test="marc:subfield[@code='o']">
+      <marc:datafield>
+        <xsl:attribute name="tag">700</xsl:attribute>
+        <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
+        <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+        <marc:subfield code="i">is arrangement of</marc:subfield>
+        <xsl:copy-of select="$agentSubfields"/>
+        <xsl:apply-templates mode="copy" select="marc:subfield[@code='t']"/>
+        <xsl:apply-templates mode="copy" select="marc:subfield[
+                                                    contains('fhklmoprsdgn',@code) and 
+                                                    preceding-sibling::marc:subfield[@code='t'] and 
+                                                    following-sibling::marc:subfield[@code='o']
+                                                  ]"/>
+      </marc:datafield>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="marc:datafield[@tag='110']">
@@ -290,6 +305,21 @@
                                                     preceding-sibling::marc:subfield[@code='t'] and 
                                                     following-sibling::marc:subfield[@code='l']
                                                  ]"/>
+      </marc:datafield>
+    </xsl:if>
+    <xsl:if test="marc:subfield[@code='o']">
+      <marc:datafield>
+        <xsl:attribute name="tag">710</xsl:attribute>
+        <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
+        <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+        <marc:subfield code="i">is arrangement of</marc:subfield>
+        <xsl:copy-of select="$agentSubfields"/>
+        <xsl:apply-templates mode="copy" select="marc:subfield[@code='t']"/>
+        <xsl:apply-templates mode="copy" select="marc:subfield[
+                                                    contains('fhklmoprsdgn',@code) and 
+                                                    preceding-sibling::marc:subfield[@code='t'] and 
+                                                    following-sibling::marc:subfield[@code='o']
+                                                  ]"/>
       </marc:datafield>
     </xsl:if>
   </xsl:template>
@@ -347,6 +377,15 @@
         <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
         <marc:subfield code="i">is translation of</marc:subfield>
         <xsl:apply-templates mode="copy" select="marc:subfield[@code != '6' and following-sibling::marc:subfield[@code='l']]"/>
+      </marc:datafield>
+    </xsl:if>
+    <xsl:if test="marc:subfield[@code='o']">
+      <marc:datafield>
+        <xsl:attribute name="tag">730</xsl:attribute>
+        <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
+        <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+        <marc:subfield code="i">is arrangement of</marc:subfield>
+        <xsl:apply-templates mode="copy" select="marc:subfield[@code != '6' and following-sibling::marc:subfield[@code='o']]"/>
       </marc:datafield>
     </xsl:if>
   </xsl:template>

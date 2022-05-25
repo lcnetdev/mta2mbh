@@ -142,6 +142,42 @@
     <x:expect label="$l NOT present in 700"
       test="count(//marc:datafield[@tag='700'][1]/marc:subfield[@code='l']) = 0"/>
   </x:scenario>
+  
+  <x:scenario label="100 conversion - Set 3">
+    <x:context href="data/1XX/marc100-2.xml"/>
+    <x:expect label="Auth 100 with $t generates MARC 100/240"
+      test="count(//marc:datafield[@tag='100']) = 1 and
+      count(//marc:datafield[@tag='240']) = 1"/>
+    <x:expect label="$o present in 240"
+      test="count(//marc:datafield[@tag='240']/marc:subfield[@code='o']) = 1"/>
+    <x:expect label="Auth 700 exists"
+      test="count(//marc:datafield[@tag='700']) = 1"/>
+    <x:expect label="$o NOT present in 700"
+      test="count(//marc:datafield[@tag='700'][1]/marc:subfield[@code='o']) = 0"/>
+    <x:expect label="'is arrangement of' is relationship in 700"
+      test="//marc:datafield[@tag='700'][1]/marc:subfield[@code='i'] = 'is arrangement of'"/>
+  </x:scenario>
+
+  <x:scenario label="100 conversion - Set 4">
+    <x:context href="data/1XX/marc100-3.xml"/>
+    <x:expect label="Auth 100 with $t generates MARC 100/240"
+      test="count(//marc:datafield[@tag='100']) = 1 and
+      count(//marc:datafield[@tag='240']) = 1"/>
+    <x:expect label="$o present in 240"
+      test="count(//marc:datafield[@tag='240']/marc:subfield[@code='o']) = 1"/>
+    <x:expect label="$l present in 240"
+      test="count(//marc:datafield[@tag='240']/marc:subfield[@code='l']) = 1"/>
+    <x:expect label="Two Auth 700 exist"
+      test="count(//marc:datafield[@tag='700']) = 2"/>
+    <x:expect label="$l NOT present in first 700"
+      test="count(//marc:datafield[@tag='700'][1]/marc:subfield[@code='l']) = 0"/>
+    <x:expect label="'is translation of' is relationship in first 700"
+      test="//marc:datafield[@tag='700'][1]/marc:subfield[@code='i'] = 'is translation of'"/>
+    <x:expect label="$o NOT present in second 700"
+      test="count(//marc:datafield[@tag='700'][2]/marc:subfield[@code='o']) = 0"/>
+    <x:expect label="'is arrangement of' is relationship in second 700"
+      test="//marc:datafield[@tag='700'][2]/marc:subfield[@code='i'] = 'is arrangement of'"/>
+  </x:scenario>
 
   <x:scenario label="110 conversion - Set 1">
     <x:context href="data/1XX/marc110-0.xml"/>
@@ -172,6 +208,23 @@
       test="count(//marc:datafield[@tag='710']) = 1"/>
     <x:expect label="$l NOT present in 710"
       test="count(//marc:datafield[@tag='710']/marc:subfield[@code='l']) = 0"/>
+    <x:expect label="'is translation of' is relationship in 710"
+      test="//marc:datafield[@tag='710'][1]/marc:subfield[@code='i'] = 'is translation of'"/>
+  </x:scenario>
+
+  <x:scenario label="110 conversion - Set 3">
+    <x:context href="data/1XX/marc110-2.xml"/>
+    <x:expect label="Auth 110 with $t generates MARC 110/240"
+      test="count(//marc:datafield[@tag='110']) = 1 and
+      count(//marc:datafield[@tag='240']) = 1"/>
+    <x:expect label="$o present in 240"
+      test="count(//marc:datafield[@tag='240']/marc:subfield[@code='o']) = 1"/>
+    <x:expect label="Two Auth 710 exist"
+      test="count(//marc:datafield[@tag='710']) = 2"/>
+    <x:expect label="$o NOT present in first 710"
+      test="count(//marc:datafield[@tag='710']/marc:subfield[@code='o']) = 0"/>
+    <x:expect label="'is arrangement of' is relationship in first 710"
+      test="//marc:datafield[@tag='710'][1]/marc:subfield[@code='i'] = 'is arrangement of'"/>
   </x:scenario>
 
   <x:scenario label="111 conversion - Set 1">
@@ -218,13 +271,29 @@
       test="count(//marc:datafield[@tag='130']) = 1"/>
     <x:expect label="$l present in 130"
       test="count(//marc:datafield[@tag='130']/marc:subfield[@code='l']) = 1"/>
-    <x:expect label="Auth 711 exists"
+    <x:expect label="Auth 730 exists"
       test="count(//marc:datafield[@tag='730']) = 1"/>
     <x:expect label="$l NOT present in 730"
       test="count(//marc:datafield[@tag='730']/marc:subfield[@code='l']) = 0"/>
+    <x:expect label="'is translation of' is relationship in 730"
+      test="//marc:datafield[@tag='730'][1]/marc:subfield[@code='i'] = 'is translation of'"/>
   </x:scenario>
 
-  <x:scenario label="400 conversion - Test 0">
+  <x:scenario label="130 conversion - Set 3">
+    <x:context href="data/1XX/marc130-2.xml"/>
+    <x:expect label="Auth 130 with $t generates MARC 130"
+      test="count(//marc:datafield[@tag='130']) = 1"/>
+    <x:expect label="$o present in 130"
+      test="count(//marc:datafield[@tag='130']/marc:subfield[@code='o']) = 1"/>
+    <x:expect label="Auth 730 exists"
+      test="count(//marc:datafield[@tag='730']) = 1"/>
+    <x:expect label="$o NOT present in 730"
+      test="count(//marc:datafield[@tag='730']/marc:subfield[@code='l']) = 0"/>
+    <x:expect label="'is arrangement of' is relationship in 730"
+      test="//marc:datafield[@tag='730'][1]/marc:subfield[@code='i'] = 'is arrangement of'"/>
+  </x:scenario>
+
+  <x:scenario label="400 conversion - Set 1">
     <x:context href="data/4XX/marc400-0.xml"/>
     <x:expect label="Auth 400 generates only 1 MARC 700 (for the translation)"
               test="count(//marc:datafield[@tag='700']) = 1"/>
@@ -234,7 +303,7 @@
               test="//marc:datafield[@tag='246'][1]/@ind1 = '3'"/>
   </x:scenario>
 
-  <x:scenario label="400 conversion - Test 1">
+  <x:scenario label="400 conversion - Set 2">
     <x:context href="data/4XX/marc400-1.xml"/>
     <x:expect label="Auth 400 generates MARC 700"
       test="count(//marc:datafield[@tag='700']) = 1"/>
@@ -244,7 +313,7 @@
       test="//marc:datafield[@tag='700'][1]/marc:subfield[@code='a'] = 'Jeanne-Claude,'"/>
   </x:scenario>
 
-  <x:scenario label="400 conversion - Test 2">
+  <x:scenario label="400 conversion - Set 3">
     <x:context href="data/4XX/marc400-2.xml"/>
     <x:expect label="Auth 400 does *not* generate MARC 700"
       test="count(//marc:datafield[@tag='700']) = 0"/>
