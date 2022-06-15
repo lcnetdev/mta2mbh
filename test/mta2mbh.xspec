@@ -8,7 +8,15 @@
   <x:scenario label="Regression">
     <x:context href="data/mta.xml"/>
     <x:expect label="should match expected">
-      <marc:record xmlns:marc="http://www.loc.gov/MARC21/slim">
+      <marc:record xmlns:marc="http://www.loc.gov/MARC21/slim"><!--
+            This MARC records that contain fields, subfields, and indicator values not
+            currently defined in the MARC bibliographic format.  In
+            addition, treatment of series treatment fields (from the authority
+            record 64X fields) is under review and may change in future versions 
+            of this stylesheet.
+          --><!--
+            For more information see: https://github.com/lcnetdev/mta2mbh#introduction
+          -->
         <marc:leader>     nqu a22      u 4500</marc:leader>
         <marc:controlfield tag="001">no2020106889</marc:controlfield>
         <marc:controlfield tag="003">DLC</marc:controlfield>

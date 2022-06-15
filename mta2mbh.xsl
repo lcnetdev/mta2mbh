@@ -97,6 +97,16 @@
           </marc:datafield>
         </xsl:variable>
         <marc:record>
+          <xsl:comment>
+            This MARC records that contain fields, subfields, and indicator values not
+            currently defined in the MARC bibliographic format.  In
+            addition, treatment of series treatment fields (from the authority
+            record 64X fields) is under review and may change in future versions 
+            of this stylesheet.
+          </xsl:comment>
+          <xsl:comment>
+            For more information see: https://github.com/lcnetdev/mta2mbh#introduction
+          </xsl:comment>
           <xsl:for-each select="marc:leader">
             <xsl:variable name="vLdr5">
               <xsl:choose>
