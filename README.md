@@ -15,12 +15,17 @@ MARC "Bib Hub" Work descriptions.
 
 ## Introduction
 
-_mta2mbh_ is an XSLT v1.0 stylesheet that converts title
-[authority records](https://www.loc.gov/marc/authority/) encoded as
-[MARCXML](https://www.loc.gov/standards/marcxml/) (either a single
-record or a MARC collection) into "Bib Hub" Work descriptions --
-sparse MARC [bibliographic records](https://www.loc.gov/marc/bibliographic/)
-built from the authority records.
+_mta2mbh_ is an XSLT v1.0 stylesheet that converts name-title and 
+title [authority records](https://www.loc.gov/marc/authority/) encoded 
+as [MARCXML](https://www.loc.gov/standards/marcxml/) (either a single record or 
+a MARC collection) into "Bib Hub" Work descriptions -- sparse 
+MARC [bibliographic records](https://www.loc.gov/marc/bibliographic/) built from 
+the authority records. This is an experimental data conversion project which 
+creates MARC records that contain fields, subfields, and indicator values not 
+currently defined in the MARC [bibliographic format](https://loc.gov/marc/bibliographic/).  In
+addition, treatment of series treatment fields (from the authority 
+record [64X fields](https://www.loc.gov/marc/authority/ad64x.html)) is 
+under review and may change in future versions of this stylesheet.
 
 ## Dependencies
 
