@@ -9,7 +9,7 @@
   <xsl:output encoding="UTF-8" method="xml" indent="yes"/>
   <xsl:strip-space elements="*"/>
 
-  <xsl:variable name="vCurrentVersion">DLC mta2mbh v1.0.0-SNAPSHOT</xsl:variable>
+  <xsl:variable name="vCurrentVersion">DLC mta2mbh v1.0.0</xsl:variable>
 
   <!-- stylesheet parameters -->
 
