@@ -5,6 +5,7 @@ MARC "Bib Hub" Work descriptions.
 
 ## Contents
 * [Introduction](#introduction)
+* [Examples](#examples)
 * [Dependencies](#dependencies)
 * [Usage](#usage)
     * [Stylesheet parameters](#stylesheet-parameters)
@@ -26,6 +27,13 @@ currently defined in the MARC [bibliographic format](https://loc.gov/marc/biblio
 addition, treatment of series treatment fields (from the authority 
 record [64X fields](https://www.loc.gov/marc/authority/ad64x.html)) is 
 under review and may change in future versions of this stylesheet.
+
+## Examples
+
+MARC "Bib Hub" descriptions can be viewed at [ID.LOC.GOV](https://id.loc.gov/).  A link can
+be found at the bottom of all Title or NameTitle pages such as [this one](https://id.loc.gov/authorities/names/n94123751.html).  
+
+There is also a [comparison service](https://id.loc.gov/tools/compare/mta2mbh/?lccn=n94123751) that facilitates side-by-side comparison.
 
 ## Dependencies
 
