@@ -47,7 +47,7 @@
           <marc:subfield code="b">table of contents frame (Lists 16 short stories including the title story El Aleph) title page frame (Jorge Luis Borges. Debolsillo)</marc:subfield>
         </marc:datafield>
         <marc:datafield tag="884" ind1=" " ind2=" ">
-          <marc:subfield code="a">DLC mta2mbh v1.0.0-SNAPSHOT</marc:subfield>
+          <marc:subfield code="a">DLC mta2mbh v1.1.0-DEV</marc:subfield>
           <marc:subfield code="g">19700101</marc:subfield>
           <marc:subfield code="k">no2020106889</marc:subfield>
           <marc:subfield code="q">DLC</marc:subfield>
@@ -373,6 +373,18 @@
       test="//marc:datafield[@tag='246'][1]/@ind1 = '3'"/>
     <x:expect label="Copy other fields"
       test="//marc:datafield[@tag='246']/marc:subfield[@code='a'] = 'Web-linked DK online'"/>
+  </x:scenario>
+  
+  <x:scenario label="430 conversion - Extra Extra">
+    <x:context href="data/4XX/marc430-1.xml"/>
+    <x:expect label="Auth 430 generates MARC 246"
+      test="count(//marc:datafield[@tag='246']) = 1"/>
+    <x:expect label="Bib 246 ind1=3"
+      test="//marc:datafield[@tag='246'][1]/@ind1 = '3'"/>
+    <x:expect label="subfield a carries over"
+      test="//marc:datafield[@tag='246']/marc:subfield[@code='a'] = '別冊太陽.'"/>
+    <x:expect label="subfield 7 is copied"
+      test="//marc:datafield[@tag='246']/marc:subfield[@code='7'] = '(bcp47)ja-Hani'"/>
   </x:scenario>
 
   <!-- Missing test data -->

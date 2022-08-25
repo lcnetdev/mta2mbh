@@ -1,0 +1,24 @@
+<marcxml:record xmlns:marcxml="http://www.loc.gov/MARC21/slim">
+  <marcxml:leader>01999czm a2200541 i 4500</marcxml:leader>
+  <marcxml:controlfield tag="001">22245163</marcxml:controlfield>
+  <marcxml:controlfield tag="005">20210922062226.0</marcxml:controlfield>
+  <marcxml:controlfield tag="008">210920s2020    ja a     b    000 0 jpn c</marcxml:controlfield>
+  <marcxml:datafield tag="024" ind1="7" ind2="">
+    <marcxml:subfield code="a">22245163</marcxml:subfield>
+    <marcxml:subfield code="q">LC-ILSDB</marcxml:subfield>
+    <marcxml:subfield code="2">local</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="130" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Bessatsu Taiyō.</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="377" ind1=" " ind2=" ">
+    <marcxml:subfield code="a">jpn</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">別冊太陽.</marcxml:subfield>
+    <marcxml:subfield code="7">(bcp47)ja-Hani</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="599">
+    <marcxml:subfield code="a">Created from bib ap.</marcxml:subfield>
+  </marcxml:datafield>
+</marcxml:record>
