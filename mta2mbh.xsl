@@ -459,6 +459,7 @@
             <xsl:apply-templates mode="copy" select="."/>
           </xsl:if> 
         </xsl:for-each>
+        <xsl:copy-of select="marc:subfield[@code='7']" />
       </marc:datafield>
     </xsl:if>
     
@@ -498,6 +499,7 @@
           <xsl:attribute name="code">a</xsl:attribute>
           <xsl:value-of select="normalize-space($df246title)"/>
         </marc:subfield>
+        <xsl:copy-of select="marc:subfield[@code='7']" />
       </marc:datafield>
     </xsl:if>
 
@@ -546,6 +548,7 @@
           <xsl:attribute name="code">a</xsl:attribute>
           <xsl:value-of select="normalize-space($df246title)"/>
         </marc:subfield>
+        <xsl:copy-of select="marc:subfield[@code='7']" />
       </marc:datafield>
     </xsl:if>
   </xsl:template>
