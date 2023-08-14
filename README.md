@@ -28,6 +28,12 @@ addition, treatment of series treatment fields (from the authority
 record [64X fields](https://www.loc.gov/marc/authority/ad64x.html)) is 
 under review and may change in future versions of this stylesheet.
 
+For more background about the genesis of this conversion, see the [Report on examination of MARC 
+Title Authorities](https://listserv.loc.gov/cgi-bin/wa?A2=MARC;89de296e.2206).  In 
+addition to providing more detailed description behind the motives for this 
+experimental data conversion, it details the (relatively) few additions and changes needed
+to the MARC Bibliographic format to further this idea.
+
 ## Examples
 
 MARC "Bib Hub" descriptions can be viewed at [ID.LOC.GOV](https://id.loc.gov/).  A link can
