@@ -1,3 +1,9 @@
+--- 1.1.0 2024-03-05
+
+Second official release.
+    Support added for $7 on 4XX.
+    Move relationship to $e when entity is an agents (relationships to titles use $i)
+
 --- 1.0.0 2022-06-15
 
 First official release.
