@@ -1,0 +1,243 @@
+<marcxml:record xmlns:marcxml="http://www.loc.gov/MARC21/slim" xmlns:mets="http://www.loc.gov/METS/" xmlns:bf="http://id.loc.gov/ontologies/bibframe/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:madsrdf="http://www.loc.gov/mads/rdf/v1#" xmlns:bflc="http://id.loc.gov/ontologies/bflc/" xmlns:ri="http://id.loc.gov/ontologies/RecordInfo#" xmlns:idx="info:lc/xq-modules/lcindex" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:semtriples="http://marklogic.com/semantic" xmlns:streams="info:lc/streams#">
+  <marcxml:leader>05127cz  a2200805n  4500</marcxml:leader>
+  <marcxml:controlfield tag="001">n88179164</marcxml:controlfield>
+  <marcxml:controlfield tag="003">DLC</marcxml:controlfield>
+  <marcxml:controlfield tag="005">20190430073221.0</marcxml:controlfield>
+  <marcxml:controlfield tag="008">890809n| azannaabn          |a ana      </marcxml:controlfield>
+  <marcxml:datafield tag="010" ind1=" " ind2=" ">
+    <marcxml:subfield code="a">n  88179164 </marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="035" ind1=" " ind2=" ">
+    <marcxml:subfield code="a">(OCoLC)oca02576820</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="040" ind1=" " ind2=" ">
+    <marcxml:subfield code="a">DLC</marcxml:subfield>
+    <marcxml:subfield code="b">eng</marcxml:subfield>
+    <marcxml:subfield code="e">rda</marcxml:subfield>
+    <marcxml:subfield code="c">DLC</marcxml:subfield>
+    <marcxml:subfield code="d">DLC</marcxml:subfield>
+    <marcxml:subfield code="d">OhKeUHG</marcxml:subfield>
+    <marcxml:subfield code="d">UPB</marcxml:subfield>
+    <marcxml:subfield code="d">OCoLC</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="046" ind1=" " ind2=" ">
+    <marcxml:subfield code="k">1939</marcxml:subfield>
+    <marcxml:subfield code="2">edtf</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="130" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Wizard of Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="370" ind1=" " ind2=" ">
+    <marcxml:subfield code="g">United States</marcxml:subfield>
+    <marcxml:subfield code="2">naf</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="380" ind1=" " ind2=" ">
+    <marcxml:subfield code="a">Action and adventure films</marcxml:subfield>
+    <marcxml:subfield code="a">Fantasy films</marcxml:subfield>
+    <marcxml:subfield code="a">Musical films</marcxml:subfield>
+    <marcxml:subfield code="a">Fiction films</marcxml:subfield>
+    <marcxml:subfield code="2">lcgft</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Čarobnjak iz Oza (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Carodej ze zeme Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Čarodejník z krajiny Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Čarovnik iz Oza (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Charivnyk kraiiny Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Czarnoksiężnik z Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Feiticeiro de Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Galdrakarlinn í Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Hexer von Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Ihmemaa Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Jadugar-e shahr-e oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Kossem m'Eretz Ootz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Màgic d'Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Magicien d'Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Mágico de Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Mago de Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Mago di Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Magʹosnikŭt ot Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Óz, a csodák csodája (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Ozo šalies burtininkas (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Ozu no mahôtsukai (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Phù Thu̓y Xứ Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Saher-a oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Troldmanden fra Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Trollkarlen från Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Trollmannen fra Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Zauberer von Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Zauberhafte Land (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Vrajitorul din Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Volshebnik strany Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Võlur Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Магьосникът от Оз (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Волшебник страны Оз (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Чарiвник краiiни Оз (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Μάγος του Οζ (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="430" ind1=" " ind2="0">
+    <marcxml:subfield code="a">Magos tou Oz (Motion picture : 1939)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="500" ind1="1" ind2=" ">
+    <marcxml:subfield code="w">r</marcxml:subfield>
+    <marcxml:subfield code="i">Film director:</marcxml:subfield>
+    <marcxml:subfield code="a">Fleming, Victor,</marcxml:subfield>
+    <marcxml:subfield code="d">1889-1949</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="500" ind1="1" ind2=" ">
+    <marcxml:subfield code="w">r</marcxml:subfield>
+    <marcxml:subfield code="i">Film director:</marcxml:subfield>
+    <marcxml:subfield code="a">Cukor, George,</marcxml:subfield>
+    <marcxml:subfield code="d">1899-1983</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="500" ind1="1" ind2=" ">
+    <marcxml:subfield code="w">r</marcxml:subfield>
+    <marcxml:subfield code="i">Film director:</marcxml:subfield>
+    <marcxml:subfield code="a">LeRoy, Mervyn,</marcxml:subfield>
+    <marcxml:subfield code="d">1900-1987</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="500" ind1="1" ind2=" ">
+    <marcxml:subfield code="w">r</marcxml:subfield>
+    <marcxml:subfield code="i">Film director:</marcxml:subfield>
+    <marcxml:subfield code="a">Taurog, Norman,</marcxml:subfield>
+    <marcxml:subfield code="d">1899-1981</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="500" ind1="1" ind2=" ">
+    <marcxml:subfield code="w">r</marcxml:subfield>
+    <marcxml:subfield code="i">Film director:</marcxml:subfield>
+    <marcxml:subfield code="a">Vidor, King,</marcxml:subfield>
+    <marcxml:subfield code="d">1894-1982</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="500" ind1="1" ind2=" ">
+    <marcxml:subfield code="w">r</marcxml:subfield>
+    <marcxml:subfield code="i">Film producer:</marcxml:subfield>
+    <marcxml:subfield code="a">LeRoy, Mervyn,</marcxml:subfield>
+    <marcxml:subfield code="d">1900-1987</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="500" ind1="1" ind2=" ">
+    <marcxml:subfield code="w">r</marcxml:subfield>
+    <marcxml:subfield code="i">Film producer:</marcxml:subfield>
+    <marcxml:subfield code="a">Freed, Arthur,</marcxml:subfield>
+    <marcxml:subfield code="d">1894-1973</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="500" ind1="1" ind2=" ">
+    <marcxml:subfield code="w">r</marcxml:subfield>
+    <marcxml:subfield code="i">Screenwriter:</marcxml:subfield>
+    <marcxml:subfield code="a">Langley, Noel,</marcxml:subfield>
+    <marcxml:subfield code="d">1911-1980</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="500" ind1="1" ind2=" ">
+    <marcxml:subfield code="w">r</marcxml:subfield>
+    <marcxml:subfield code="i">Screenwriter:</marcxml:subfield>
+    <marcxml:subfield code="a">Ryerson, Florence</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="500" ind1="1" ind2=" ">
+    <marcxml:subfield code="w">r</marcxml:subfield>
+    <marcxml:subfield code="i">Screenwriter:</marcxml:subfield>
+    <marcxml:subfield code="a">Woolf, Edgar Allan</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="500" ind1="1" ind2=" ">
+    <marcxml:subfield code="w">r</marcxml:subfield>
+    <marcxml:subfield code="i">Director of photography:</marcxml:subfield>
+    <marcxml:subfield code="a">Rosson, Harold,</marcxml:subfield>
+    <marcxml:subfield code="d">1895-1988</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="500" ind1="1" ind2=" ">
+    <marcxml:subfield code="w">r</marcxml:subfield>
+    <marcxml:subfield code="i">Motion picture adaptation of:</marcxml:subfield>
+    <marcxml:subfield code="a">Baum, L. Frank</marcxml:subfield>
+    <marcxml:subfield code="q">(Lyman Frank),</marcxml:subfield>
+    <marcxml:subfield code="d">1856-1919.</marcxml:subfield>
+    <marcxml:subfield code="t">Wizard of Oz</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="510" ind1="2" ind2=" ">
+    <marcxml:subfield code="w">r</marcxml:subfield>
+    <marcxml:subfield code="i">Production company:</marcxml:subfield>
+    <marcxml:subfield code="a">Metro-Goldwyn-Mayer</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="670" ind1=" " ind2=" ">
+    <marcxml:subfield code="a">McClelland, D. Down the yellow brick road, 1989:</marcxml:subfield>
+    <marcxml:subfield code="b">CIP t.p. (Wizard of Oz) pub. info. (story of the motion picture, Wizard of Oz)</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="670" ind1=" " ind2=" ">
+    <marcxml:subfield code="a">IMDb, Feb. 16, 2006</marcxml:subfield>
+    <marcxml:subfield code="b">(Wizard of Oz (1939); lists also Wizard of Oz (1925))</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="670" ind1=" " ind2=" ">
+    <marcxml:subfield code="a">IMDb, July 25, 2017</marcxml:subfield>
+    <marcxml:subfield code="b">(Wizard of Oz (1939); directed by Victor Fleming, George Cukor, Mervyn LeRoy, Norman Taurog, and King Vidor; written by Noel Langley, Florence Ryerson, Edgar Allan Woolf; based on the book by L. Frank Baum)</marcxml:subfield>
+    <marcxml:subfield code="u">http://www.imdb.com/title/tt0032138/?ref_=fn_tt_tt_9</marcxml:subfield>
+  </marcxml:datafield>
+  <marcxml:datafield tag="670" ind1=" " ind2=" ">
+    <marcxml:subfield code="a">IMDb, April 2019</marcxml:subfield>
+    <marcxml:subfield code="b">(The wizard of Oz; adventure/family/fantasy film released in 1939; directed by Victor Fleming, George Cukor, Mervyn LeRoy, Norman Taurog, and King Vidor; written by Noel Langley, Florence Ryerson, Edgar Allan Woolf; based on the book by L. Frank Baum; producers: Mevyn LeRoy; Arthur Freed; cinematography by Harold Rosson; prodcution company: Metro-Goldwyn-Mayer; other titles: El mago de Oz; Das zauberhafte Land; Der Hexer von Oz; O Mágico de Oz; Le magicien d'Oz; Čarobnjak iz Oza; Магьосникът от Оз; Carodej ze zeme Oz; Čarodejník z krajiny Oz; Troldmanden fra Oz; Saher-a oz; Võlur Oz; Trollkarlen från Oz; Ihmemaa Oz; Der Zauberer von Oz; O μάγος του Οζ; Oź, a csodák csodája; Galdrakarlinn í Oz; Jadugar-e shahr-e oz; Ha-Kossem M'Eretz Ootz; II mago di Oz; Ozu no mahôtsukai; Ozo šalies burtininkas; Trollmannen fra Oz; Czarnoksiężnik z Oz; O Feiticeiro de Oz; Vrajitorul din Oz; Волшебник страны Оз; Čarovnik iz Oza; El màgic d'Oz; Чарiвник краiiни Оз; Phu `Thu̓y Xu̓̕ Oz)</marcxml:subfield>
+  </marcxml:datafield>
+</marcxml:record>
