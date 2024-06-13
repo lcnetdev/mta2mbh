@@ -47,7 +47,7 @@
           <marc:subfield code="b">table of contents frame (Lists 16 short stories including the title story El Aleph) title page frame (Jorge Luis Borges. Debolsillo)</marc:subfield>
         </marc:datafield>
         <marc:datafield tag="884" ind1=" " ind2=" ">
-          <marc:subfield code="a">DLC mta2mbh v1.1.0</marc:subfield>
+          <marc:subfield code="a">DLC mta2mbh v1.2.0</marc:subfield>
           <marc:subfield code="g">19700101</marc:subfield>
           <marc:subfield code="k">no2020106889</marc:subfield>
           <marc:subfield code="q">DLC</marc:subfield>
@@ -285,6 +285,8 @@
       test="count(//marc:datafield[@tag='730']/marc:subfield[@code='l']) = 0"/>
     <x:expect label="'is translation of' is relationship in 730"
       test="//marc:datafield[@tag='730'][1]/marc:subfield[@code='i'] = 'is translation of'"/>
+    <x:expect label="Bib ind1 from auth ind2 for 730"
+      test="//marc:datafield[@tag='730']/@ind1 = '0'"/>
   </x:scenario>
 
   <x:scenario label="130 conversion - Set 3">
@@ -299,6 +301,8 @@
       test="count(//marc:datafield[@tag='730']/marc:subfield[@code='l']) = 0"/>
     <x:expect label="'is arrangement of' is relationship in 730"
       test="//marc:datafield[@tag='730'][1]/marc:subfield[@code='i'] = 'is arrangement of'"/>
+    <x:expect label="Bib ind1 from auth ind2"
+      test="//marc:datafield[@tag='730']/@ind1 = '0'"/>
   </x:scenario>
 
   <x:scenario label="400 conversion - Set 1">

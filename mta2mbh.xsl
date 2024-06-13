@@ -9,7 +9,7 @@
   <xsl:output encoding="UTF-8" method="xml" indent="yes"/>
   <xsl:strip-space elements="*"/>
 
-  <xsl:variable name="vCurrentVersion">DLC mta2mbh v1.1.0</xsl:variable>
+  <xsl:variable name="vCurrentVersion">DLC mta2mbh v1.2.0</xsl:variable>
 
   <!-- stylesheet parameters -->
 
@@ -383,7 +383,7 @@
     <xsl:if test="marc:subfield[@code='l']">
       <marc:datafield>
         <xsl:attribute name="tag">730</xsl:attribute>
-        <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
+        <xsl:attribute name="ind1"><xsl:value-of select="@ind2"/></xsl:attribute>
         <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
         <marc:subfield code="i">is translation of</marc:subfield>
         <xsl:apply-templates mode="copy" select="marc:subfield[@code != '6' and following-sibling::marc:subfield[@code='l']]"/>
@@ -392,7 +392,7 @@
     <xsl:if test="marc:subfield[@code='o']">
       <marc:datafield>
         <xsl:attribute name="tag">730</xsl:attribute>
-        <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
+        <xsl:attribute name="ind1"><xsl:value-of select="@ind2"/></xsl:attribute>
         <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
         <marc:subfield code="i">is arrangement of</marc:subfield>
         <xsl:apply-templates mode="copy" select="marc:subfield[@code != '6' and following-sibling::marc:subfield[@code='o']]"/>
