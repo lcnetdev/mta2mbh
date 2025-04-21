@@ -249,21 +249,44 @@
       <xsl:apply-templates mode="copy" select="marc:subfield[contains('fhklmoprsdgn',@code)][preceding-sibling::marc:subfield[@code='t']]"/>
     </marc:datafield>
     
-    <xsl:if test="marc:subfield[@code='l']">
-      <marc:datafield>
-        <xsl:attribute name="tag">700</xsl:attribute>
-        <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
-        <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
-        <marc:subfield code="i">is translation of</marc:subfield>
-        <xsl:copy-of select="$agentSubfields"/>
-        <xsl:apply-templates mode="copy" select="marc:subfield[@code='t']"/>
-        <xsl:apply-templates mode="copy" select="marc:subfield[
-                                                    contains('fhklmoprsdgn',@code) and 
-                                                    preceding-sibling::marc:subfield[@code='t'] and 
-                                                    following-sibling::marc:subfield[@code='l']
-                                                 ]"/>
-      </marc:datafield>
-    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="marc:subfield[@code='h'] and 
+                      ( 
+                        contains(marc:subfield[@code='h'][1], 'Spoken word') or 
+                        contains(marc:subfield[@code='h'][1], 'Performed music') or 
+                        contains(marc:subfield[@code='h'][1], 'Notated music')
+                      )
+                ">
+        <marc:datafield>
+          <xsl:attribute name="tag">700</xsl:attribute>
+          <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
+          <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+          <marc:subfield code="i">version in different format of</marc:subfield>
+          <xsl:copy-of select="$agentSubfields"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[@code='t']"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[
+            contains('klmoprdgn',@code) and 
+            preceding-sibling::marc:subfield[@code='t'] and 
+            following-sibling::marc:subfield[@code='h']
+            ]"/>
+        </marc:datafield>
+      </xsl:when>
+      <xsl:when test="marc:subfield[@code='l']">
+        <marc:datafield>
+          <xsl:attribute name="tag">700</xsl:attribute>
+          <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
+          <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+          <marc:subfield code="i">is translation of</marc:subfield>
+          <xsl:copy-of select="$agentSubfields"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[@code='t']"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[
+            contains('fhklmoprsdgn',@code) and 
+            preceding-sibling::marc:subfield[@code='t'] and 
+            following-sibling::marc:subfield[@code='l']
+            ]"/>
+        </marc:datafield>
+      </xsl:when>
+    </xsl:choose>
     <xsl:if test="marc:subfield[@code='o']">
       <marc:datafield>
         <xsl:attribute name="tag">700</xsl:attribute>
@@ -302,7 +325,29 @@
       <xsl:apply-templates mode="copy" select="marc:subfield[contains('fhklmoprsdgn',@code)][preceding-sibling::marc:subfield[@code='t']]"/>
     </marc:datafield>
     
-    <xsl:if test="marc:subfield[@code='l']">
+    <xsl:choose>
+      <xsl:when test="marc:subfield[@code='h'] and 
+                      ( 
+                        contains(marc:subfield[@code='h'][1], 'Spoken word') or 
+                        contains(marc:subfield[@code='h'][1], 'Performed music') or 
+                        contains(marc:subfield[@code='h'][1], 'Notated music')
+                      )
+        ">
+        <marc:datafield>
+          <xsl:attribute name="tag">710</xsl:attribute>
+          <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
+          <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+          <marc:subfield code="i">version in different format of</marc:subfield>
+          <xsl:copy-of select="$agentSubfields"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[@code='t']"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[
+            contains('klmoprdgn',@code) and 
+            preceding-sibling::marc:subfield[@code='t'] and 
+            following-sibling::marc:subfield[@code='h']
+            ]"/>
+        </marc:datafield>
+      </xsl:when>
+      <xsl:when test="marc:subfield[@code='l']">
       <marc:datafield>
         <xsl:attribute name="tag">710</xsl:attribute>
         <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
@@ -316,7 +361,8 @@
                                                     following-sibling::marc:subfield[@code='l']
                                                  ]"/>
       </marc:datafield>
-    </xsl:if>
+      </xsl:when>
+    </xsl:choose>
     <xsl:if test="marc:subfield[@code='o']">
       <marc:datafield>
         <xsl:attribute name="tag">710</xsl:attribute>
@@ -355,7 +401,29 @@
       <xsl:apply-templates mode="copy" select="marc:subfield[contains('fhklpstdgn',@code)][preceding-sibling::marc:subfield[@code='t']]"/>
     </marc:datafield>
     
-    <xsl:if test="marc:subfield[@code='l']">
+    <xsl:choose>
+      <xsl:when test="marc:subfield[@code='h'] and 
+        ( 
+          contains(marc:subfield[@code='h'][1], 'Spoken word') or 
+          contains(marc:subfield[@code='h'][1], 'Performed music') or 
+          contains(marc:subfield[@code='h'][1], 'Notated music')
+        )
+        ">
+        <marc:datafield>
+          <xsl:attribute name="tag">711</xsl:attribute>
+          <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
+          <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+          <marc:subfield code="i">version in different format of</marc:subfield>
+          <xsl:copy-of select="$agentSubfields"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[@code='t']"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[
+            contains('fklptdgn',@code) and 
+            preceding-sibling::marc:subfield[@code='t'] and 
+            following-sibling::marc:subfield[@code='h']
+            ]"/>
+        </marc:datafield>
+      </xsl:when>
+      <xsl:when test="marc:subfield[@code='l']">
       <marc:datafield>
         <xsl:attribute name="tag">711</xsl:attribute>
         <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
@@ -369,7 +437,8 @@
                                                       following-sibling::marc:subfield[@code='l']
           ]"/>
       </marc:datafield>
-    </xsl:if>
+      </xsl:when>
+    </xsl:choose>
   </xsl:template>
   
   <xsl:template match="marc:datafield[@tag='130']">
@@ -380,7 +449,27 @@
       <xsl:apply-templates mode="copy" select="marc:subfield[@code != '6']"/>
     </marc:datafield>
     
-    <xsl:if test="marc:subfield[@code='l']">
+    <xsl:choose>
+      <xsl:when test="marc:subfield[@code='h'] and 
+                      ( 
+                        contains(marc:subfield[@code='h'][1], 'Spoken word') or 
+                        contains(marc:subfield[@code='h'][1], 'Performed music') or 
+                        contains(marc:subfield[@code='h'][1], 'Notated music')
+                      )
+                ">
+        <marc:datafield>
+          <xsl:attribute name="tag">730</xsl:attribute>
+          <xsl:attribute name="ind1"><xsl:value-of select="@ind2"/></xsl:attribute>
+          <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+          <marc:subfield code="i">version in different format of</marc:subfield>
+          <xsl:apply-templates mode="copy" select="marc:subfield[@code='t']"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[
+            @code != '6' and
+            following-sibling::marc:subfield[@code='h']
+            ]"/>
+        </marc:datafield>
+      </xsl:when>
+      <xsl:when test="marc:subfield[@code='l']">
       <marc:datafield>
         <xsl:attribute name="tag">730</xsl:attribute>
         <xsl:attribute name="ind1"><xsl:value-of select="@ind2"/></xsl:attribute>
@@ -388,8 +477,9 @@
         <marc:subfield code="i">is translation of</marc:subfield>
         <xsl:apply-templates mode="copy" select="marc:subfield[@code != '6' and following-sibling::marc:subfield[@code='l']]"/>
       </marc:datafield>
-    </xsl:if>
-    <xsl:if test="marc:subfield[@code='o']">
+    </xsl:when>
+    </xsl:choose>
+      <xsl:if test="marc:subfield[@code='o']">
       <marc:datafield>
         <xsl:attribute name="tag">730</xsl:attribute>
         <xsl:attribute name="ind1"><xsl:value-of select="@ind2"/></xsl:attribute>
