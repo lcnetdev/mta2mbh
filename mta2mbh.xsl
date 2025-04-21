@@ -705,6 +705,7 @@
                        marc:datafield[@tag='016'] |
                        marc:datafield[@tag='020'] |
                        marc:datafield[@tag='022'] |
+                       marc:datafield[@tag='023'] |
                        marc:datafield[@tag='024'] |
                        marc:datafield[@tag='031'] |
                        marc:datafield[@tag='034'] |

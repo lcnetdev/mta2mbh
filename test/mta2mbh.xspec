@@ -47,7 +47,7 @@
           <marc:subfield code="b">table of contents frame (Lists 16 short stories including the title story El Aleph) title page frame (Jorge Luis Borges. Debolsillo)</marc:subfield>
         </marc:datafield>
         <marc:datafield tag="884" ind1=" " ind2=" ">
-          <marc:subfield code="a">DLC mta2mbh v1.0.0-SNAPSHOT</marc:subfield>
+          <marc:subfield code="a">DLC mta2mbh v1.1.0</marc:subfield>
           <marc:subfield code="g">19700101</marc:subfield>
           <marc:subfield code="k">no2020106889</marc:subfield>
           <marc:subfield code="q">DLC</marc:subfield>
@@ -374,9 +374,35 @@
     <x:expect label="Copy other fields"
       test="//marc:datafield[@tag='246']/marc:subfield[@code='a'] = 'Web-linked DK online'"/>
   </x:scenario>
+  
+  <x:scenario label="430 conversion - Extra Extra">
+    <x:context href="data/4XX/marc430-1.xml"/>
+    <x:expect label="Auth 430 generates MARC 246"
+      test="count(//marc:datafield[@tag='246']) = 1"/>
+    <x:expect label="Bib 246 ind1=3"
+      test="//marc:datafield[@tag='246'][1]/@ind1 = '3'"/>
+    <x:expect label="subfield a carries over"
+      test="//marc:datafield[@tag='246']/marc:subfield[@code='a'] = '別冊太陽.'"/>
+    <x:expect label="subfield 7 is copied"
+      test="//marc:datafield[@tag='246']/marc:subfield[@code='7'] = '(bcp47)ja-Hani'"/>
+  </x:scenario>
 
+  <x:scenario label="500 conversion">
+    <x:context href="data/5XX/n88179164-wizoz.marcxml.xml"/>
+    <x:expect label="Auth 500 generates MARC 700"
+      test="count(//marc:datafield[@tag='700']) = 12"/>
+    <x:expect label="1st Bib 700 $a matches"
+      test="//marc:datafield[@tag='700'][1]/marc:subfield[@code='a'] = 'Fleming, Victor,'"/>
+    <x:expect label="1st Bib 700 has expected $e (not $i)"
+      test="//marc:datafield[@tag='700'][1]/marc:subfield[@code='e'] = 'Film director:'"/>
+    <x:expect label="Last Bib 700 $a matches"
+      test="//marc:datafield[@tag='700'][last()]/marc:subfield[@code='a'] = 'Baum, L. Frank'"/>
+    <x:expect label="Last Bib 700 has expected $i (not $e)"
+      test="//marc:datafield[@tag='700'][last()]/marc:subfield[@code='i'] = 'Motion picture adaptation of:'"/>
+  </x:scenario>
+  
   <!-- Missing test data -->
-  <!-- <x:scenario label="500, 511 conversion"/> -->
+  <!-- <x:scenario label="511 conversion"/> -->
 
   <x:scenario label="510 conversion">
     <x:context href="data/5XX/marc510-0.xml"/>
@@ -386,6 +412,16 @@
               test="//marc:datafield[@tag='710']/@ind2 = ' '"/>
     <x:expect label="Copy other fields"
               test="//marc:datafield[@tag='710']/marc:subfield[@code='a'] = 'France.'"/>
+  </x:scenario>
+
+  <x:scenario label="510 conversion, bonus">
+    <x:context href="data/5XX/n88179164-wizoz.marcxml.xml"/>
+    <x:expect label="Auth 510 generates MARC 710"
+      test="count(//marc:datafield[@tag='710']) = 1"/>
+    <x:expect label="Bib 710 $a matches"
+      test="//marc:datafield[@tag='710']/marc:subfield[@code='a'] = 'Metro-Goldwyn-Mayer'"/>
+    <x:expect label="Bib 710 has expected $e"
+      test="//marc:datafield[@tag='710']/marc:subfield[@code='e'] = 'Production company:'"/>
   </x:scenario>
   
   <x:scenario label="530 conversion">
