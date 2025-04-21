@@ -9,7 +9,7 @@
   <xsl:output encoding="UTF-8" method="xml" indent="yes"/>
   <xsl:strip-space elements="*"/>
 
-  <xsl:variable name="vCurrentVersion">DLC mta2mbh v1.0.0</xsl:variable>
+  <xsl:variable name="vCurrentVersion">DLC mta2mbh v1.1.0</xsl:variable>
 
   <!-- stylesheet parameters -->
 
@@ -459,6 +459,7 @@
             <xsl:apply-templates mode="copy" select="."/>
           </xsl:if> 
         </xsl:for-each>
+        <xsl:copy-of select="marc:subfield[@code='7']" />
       </marc:datafield>
     </xsl:if>
     
@@ -498,6 +499,7 @@
           <xsl:attribute name="code">a</xsl:attribute>
           <xsl:value-of select="normalize-space($df246title)"/>
         </marc:subfield>
+        <xsl:copy-of select="marc:subfield[@code='7']" />
       </marc:datafield>
     </xsl:if>
 
@@ -546,6 +548,7 @@
           <xsl:attribute name="code">a</xsl:attribute>
           <xsl:value-of select="normalize-space($df246title)"/>
         </marc:subfield>
+        <xsl:copy-of select="marc:subfield[@code='7']" />
       </marc:datafield>
     </xsl:if>
   </xsl:template>
@@ -557,16 +560,27 @@
       <xsl:attribute name="tag"><xsl:value-of select="concat('7',substring(@tag,2,2))"/></xsl:attribute>
       <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
       <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
-      <xsl:apply-templates mode="copy" select="marc:subfield[not(contains('w6',@code))]"/>
-      <xsl:if test="marc:subfield[@code='t'] and not(marc:subfield[@code='i'])">
-        <marc:subfield>
-          <xsl:attribute name="code">i</xsl:attribute>
-          <xsl:choose>
-            <xsl:when test="substring(marc:subfield[@code='w'],1,1)='f'">based on</xsl:when>
-            <xsl:otherwise>related work</xsl:otherwise>
-          </xsl:choose>
-        </marc:subfield>
-      </xsl:if>
+      <xsl:choose>
+        <xsl:when test="marc:subfield[@code='i'] and not(marc:subfield[@code='t']) and not(marc:subfield[@code='e'])">
+          <marc:subfield>
+            <xsl:attribute name="code">e</xsl:attribute>
+            <xsl:value-of select="marc:subfield[@code='i']"/>
+          </marc:subfield>
+        </xsl:when>
+        <xsl:when test="marc:subfield[@code='t'] and not(marc:subfield[@code='i'])">
+          <marc:subfield>
+            <xsl:attribute name="code">i</xsl:attribute>
+            <xsl:choose>
+              <xsl:when test="substring(marc:subfield[@code='w'],1,1)='f'">based on</xsl:when>
+              <xsl:otherwise>related work</xsl:otherwise>
+            </xsl:choose>
+          </marc:subfield>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates mode="copy" select="marc:subfield[@code='i']" />
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates mode="copy" select="marc:subfield[not(contains('iw6',@code))]"/>
     </marc:datafield>
   </xsl:template>
 
