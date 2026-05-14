@@ -271,6 +271,21 @@
             ]"/>
         </marc:datafield>
       </xsl:when>
+      <xsl:when test="marc:subfield[@code='s']">
+        <marc:datafield>
+          <xsl:attribute name="tag">700</xsl:attribute>
+          <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
+          <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+          <marc:subfield code="i">expression of</marc:subfield>
+          <xsl:copy-of select="$agentSubfields"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[@code='t']"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[
+            contains('fhklmoprsdgn',@code) and 
+            preceding-sibling::marc:subfield[@code='t'] and 
+            following-sibling::marc:subfield[@code='s']
+            ]"/>
+        </marc:datafield>
+      </xsl:when>
       <xsl:when test="marc:subfield[@code='l']">
         <marc:datafield>
           <xsl:attribute name="tag">700</xsl:attribute>
@@ -344,6 +359,21 @@
             contains('klmoprdgn',@code) and 
             preceding-sibling::marc:subfield[@code='t'] and 
             following-sibling::marc:subfield[@code='h']
+            ]"/>
+        </marc:datafield>
+      </xsl:when>
+      <xsl:when test="marc:subfield[@code='s']">
+        <marc:datafield>
+          <xsl:attribute name="tag">710</xsl:attribute>
+          <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
+          <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+          <marc:subfield code="i">expression of</marc:subfield>
+          <xsl:copy-of select="$agentSubfields"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[@code='t']"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[
+            contains('fhklmoprsdgn',@code) and 
+            preceding-sibling::marc:subfield[@code='t'] and 
+            following-sibling::marc:subfield[@code='s']
             ]"/>
         </marc:datafield>
       </xsl:when>
@@ -423,6 +453,21 @@
             ]"/>
         </marc:datafield>
       </xsl:when>
+      <xsl:when test="marc:subfield[@code='s']">
+        <marc:datafield>
+          <xsl:attribute name="tag">711</xsl:attribute>
+          <xsl:attribute name="ind1"><xsl:value-of select="@ind1"/></xsl:attribute>
+          <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+          <marc:subfield code="i">expression of</marc:subfield>
+          <xsl:copy-of select="$agentSubfields"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[@code='t']"/>
+          <xsl:apply-templates mode="copy" select="marc:subfield[
+            contains('fhklpstdgn',@code) and 
+            preceding-sibling::marc:subfield[@code='t'] and 
+            following-sibling::marc:subfield[@code='s']
+            ]"/>
+        </marc:datafield>
+      </xsl:when>
       <xsl:when test="marc:subfield[@code='l']">
       <marc:datafield>
         <xsl:attribute name="tag">711</xsl:attribute>
@@ -469,6 +514,15 @@
             ]"/>
         </marc:datafield>
       </xsl:when>
+      <xsl:when test="marc:subfield[@code='s']">
+        <marc:datafield>
+          <xsl:attribute name="tag">730</xsl:attribute>
+          <xsl:attribute name="ind1"><xsl:value-of select="@ind2"/></xsl:attribute>
+          <xsl:attribute name="ind2"><xsl:text> </xsl:text></xsl:attribute>
+          <marc:subfield code="i">expression of</marc:subfield>
+          <xsl:apply-templates mode="copy" select="marc:subfield[@code != '6' and following-sibling::marc:subfield[@code='s']]"/>
+        </marc:datafield>
+      </xsl:when>
       <xsl:when test="marc:subfield[@code='l']">
       <marc:datafield>
         <xsl:attribute name="tag">730</xsl:attribute>
@@ -477,7 +531,7 @@
         <marc:subfield code="i">is translation of</marc:subfield>
         <xsl:apply-templates mode="copy" select="marc:subfield[@code != '6' and following-sibling::marc:subfield[@code='l']]"/>
       </marc:datafield>
-    </xsl:when>
+      </xsl:when>
     </xsl:choose>
       <xsl:if test="marc:subfield[@code='o']">
       <marc:datafield>
