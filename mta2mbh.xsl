@@ -674,7 +674,10 @@
         <xsl:value-of select="."/>
       </xsl:for-each>
     </xsl:variable>
-    <xsl:if test="$df1XXtitle != $df4XXtitle">
+    <xsl:if test="
+              $df1XXtitle != $df4XXtitle and 
+              marc:subfield[@code = 'a'] != preceding-sibling::marc:datafield[@tag = '400' or @tag = '410' or @tag = '411']/marc:subfield[@code = 't']
+            ">
       <marc:datafield>
         <xsl:attribute name="tag">246</xsl:attribute>
         <xsl:attribute name="ind1">3</xsl:attribute> <!-- no note, added entry -->
